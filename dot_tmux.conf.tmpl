@@ -1,0 +1,56 @@
+# Change prefix key to backtick and still type backticks
+unbind C-b
+set-option -g prefix C-a
+bind C-a send-prefix
+
+# Start numbering from 1
+set -g base-index 1
+set -g pane-base-index 1
+
+{{- if .tmux.italics }}
+# Italics
+set -g default-terminal 'tmux-256color'
+set -as terminal-overrides ',xterm*:Tc:sitm=\E[3m'
+{{- else }}
+# No italic
+# set -g default-terminal "screen-256color"
+# set -ga terminal-overrides ",xterm-256color:Tc"
+{{- end }}
+
+# Disable window autorename
+setw -g allow-rename off
+
+# Enable mouse scroll
+setw -g mouse on
+
+# Auto-renumber windows
+set -g renumber-windows on
+
+# Vim like copy/paste
+bind-key -Tcopy-mode-vi 'v' send -X begin-selection
+bind-key -Tcopy-mode-vi 'y' send -X copy-pipe-and-cancel "xclip -i -sel c"
+
+# toggle synchronize-panes
+bind C-x setw synchronize-panes
+
+# setw -g window-status-current-format '#{?pane_synchronized,#[bg=red],}#I:#W'
+# setw -g window-status-format         '#{?pane_synchronized,#[bg=red],}#I:#W'
+
+{{- if .tmux.tpm }}
+# Automatic tpm install
+if "test ! -d ~/.tmux/plugins/tpm" \
+   "run 'git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm && ~/.tmux/plugins/tpm/bin/install_plugins'"
+
+# List of plugins
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'tmux-plugins/tmux-sensible'
+set -g @plugin 'christoomey/vim-tmux-navigator'
+set -g @plugin 'jimeh/tmux-themepack'
+set -g @plugin 'seebi/tmux-colors-solarized'
+
+set -g @themepack 'powerline/block/blue'
+set -g @colors-solarized 'dark'
+
+# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+run '~/.tmux/plugins/tpm/tpm'
+{{- end }}
