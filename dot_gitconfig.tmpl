@@ -1,0 +1,22 @@
+[core]
+    autocrlf = input
+[alias]
+    plog = log --pretty=oneline --abbrev-commit --graph --decorate --all
+    co = checkout
+    br = branch
+    ci = commit
+    st = status
+    unstage = reset HEAD --
+    ignored = ls-files --other --ignored --exclude-standard
+[user]
+    name = Alessandro Cunsolo
+    email = alessandro.cunsolo@gmail.com
+    signingkey = {{ .git.gpgkey }}
+[include]
+    path = ~/.gitconfig.local
+
+[pull]
+    ff = only
+
+[commit]
+    gpgsign = {{ .git.signcommit }}
