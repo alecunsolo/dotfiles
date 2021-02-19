@@ -1,0 +1,225 @@
+" Not always using recent versions
+set nocompatible
+
+" Four spaces is enough for a tab
+set tabstop=4 shiftwidth=4 softtabstop=4 expandtab
+
+" <Esc> alternatives for insert mode
+inoremap jk <Esc>
+inoremap kj <Esc>
+vnoremap jk <Esc>
+vnoremap kj <Esc>
+
+" Hide unsaved buffers
+set hidden
+
+" init.vim management
+command! ConfReload execute "source $MYVIMRC"
+command! ConfEdit execute ":edit $MYVIMRC"
+
+" Disable Ex mode
+nmap Q <Nop>
+
+" Line numbers
+set number
+set relativenumber
+
+" No arrows
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+inoremap <up> <nop>
+inoremap <down> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
+
+" Wrap stuff
+set nowrap
+nnoremap j gj
+nnoremap k gk
+
+" Whitespaces
+set list
+set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮,trail:⌴
+
+" Split behaviour
+set splitright
+set splitbelow
+
+" Leader
+let mapleader=','
+
+" Split open
+nnoremap gv :vertical wincmd f<CR>
+nnoremap gs :above wincmd f<CR>
+
+" Search stuff
+set ignorecase
+set smartcase
+set showmatch
+
+" File management
+set autowrite
+set autoread
+nnoremap s :w<CR>
+
+" Window management
+nnoremap <leader>c :close<CR>
+nnoremap <leader>o :only<CR>
+
+" Quickly hide hightlight
+nnoremap <leader><space> :noh<cr>
+
+" Paste toggle
+set pastetoggle=<F2>
+
+" Duplicate line
+noremap <Leader>y "zY"zp
+inoremap <Leader>y <Esc>"zY"zpi
+
+" Delete line
+noremap <Leader>d dd
+inoremap <Leader>d <C-O>dd
+
+" Autoinstall vim-plug
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+" Specify a directory for plugins
+" - For Neovim: stdpath('data') . '/plugged'
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/plugged')
+" Interface
+Plug 'vim-airline/vim-airline' " Status bar
+Plug 'morhetz/gruvbox' " Another colour scheme
+
+" Misc
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'christoomey/vim-tmux-navigator' " Tmux integration
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-unimpaired'
+
+" VSC
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+
+" Fuzzy finder
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
+
+" Coding
+Plug 'tpope/vim-commentary' " Comment/uncommend stuff
+
+{{- if .vim.coc }}
+" COC
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+{{- end }}
+call plug#end()
+
+" Colour scheme
+let g:gruvbox_italic=1
+syntax enable
+silent! colorscheme gruvbox
+set background=dark
+set cursorline
+
+" vim-gitgutter use this value to update signs
+set updatetime=100
+
+" NERDTree
+map <leader>N :NERDTreeToggle<CR>
+
+" Use powerline fonts
+let g:airline_powerline_fonts = 1
+
+" Always show statusbar
+set laststatus=2
+
+" FZF
+nnoremap <leader>f :Files<CR>
+nnoremap <leader>b :Buffers<CR>
+
+" YAML
+augroup FileType_yaml
+    " use 2 spaces tab instead of 4
+    autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+augroup END
+
+" Vagrant
+augroup vagrant
+    autocmd!
+    autocmd BufRead,BufNewFile Vagrantfile setlocal filetype=ruby ts=2 sts=2 sw=2 expandtab
+augroup END
+
+" Jenkinsfile
+augroup jenkins
+    autocmd!
+    autocmd BufRead,BufNewFile Jenkinsfile setlocal filetype=groovy ts=4 sts=4 sw=4 expandtab
+augroup END
+
+" Remove trailing spaces
+" http://vimcasts.org/episodes/tidying-whitespace/
+function! <SID>StripTrailingWhitespaces()
+    " Preparation: save last search, and cursor position.
+    let _s=@/
+    let l = line(".")
+    let c = col(".")
+    " Do the business:
+    %s/\s\+$//e
+    " Clean up: restore previous search history, and cursor position
+    let @/=_s
+    call cursor(l, c)
+endfunction
+nnoremap <silent> <F5> :call <SID>StripTrailingWhitespaces()<CR>
+
+" Clipboard
+if has("macunix")
+  set clipboard=unnamed
+elseif has("unix")
+  set clipboard=unnamedplus
+endif
+
+" Open file in the same directory of the currently open one
+" http://vimcasts.org/episodes/the-edit-command/
+cnoremap %% <C-R>=fnameescape(expand('%:h')).'/'<cr>
+map <leader>ew :e %%
+map <leader>es :sp %%
+map <leader>ev :vsp %%
+map <leader>et :tabe %%
+{{- if .vim.coc }}
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <c-space> to trigger completion.
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
+
+" Make <CR> auto-select the first completion item and notify coc.nvim to
+" format on enter, <cr> could be remapped by other vim plugin
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+{{- end }}
+" 1. base64-encode(visual-selection) -> F2 -> encoded base64-string
+:vnoremap <F6> c<c-r>=system("base64 ", @")<cr><esc>
+
+" 2. base64-decode(visual-selection) -> F3 -> decoded string
+:vnoremap <F7> c<c-r>=system("base64 -d", @")<cr>
