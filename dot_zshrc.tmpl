@@ -106,6 +106,13 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+if (( $+commands[nvim] )); then
+    export EDITOR=nvim
+    alias vim=nvim
+    alias vimdiff=vim -d
+else
+    export EDITOR=vim
+fi
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
