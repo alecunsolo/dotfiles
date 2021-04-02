@@ -85,9 +85,6 @@ plugins=(
     copybuffer
     copydir
     copyfile
-{{- if eq .chezmoi.osRelease.idLike "debian" }}
-    debian
-{{- end }}
     encode64
     fzf
     git
@@ -97,6 +94,9 @@ plugins=(
     sudo
 {{- if eq .chezmoi.os "linux" }}
     systemd
+{{- if eq .chezmoi.osRelease.idLike "debian" }}
+    debian
+{{- end }}
 {{- end }}
     vi-mode
     zsh_reload
