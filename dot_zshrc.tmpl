@@ -90,6 +90,7 @@ plugins=(
     git
     gnu-utils
     history
+    kubectl
     man
     sudo
 {{- if eq .chezmoi.os "linux" }}
@@ -102,6 +103,9 @@ plugins=(
     zsh-autosuggestions
     zsh-syntax-highlighting
     zsh_reload
+    # Custom plugins
+    contrib-brew
+    contrib-kube
 )
 
 source $ZSH/oh-my-zsh.sh
