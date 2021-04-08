@@ -143,5 +143,11 @@ fi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# Use coreutils ls instead of BSD.
+# See https://github.com/ohmyzsh/ohmyzsh/issues/9531
+if [[ -x "${commands[gls]}" ]]; then
+    alias ls='gls --color=auto'
+fi
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
