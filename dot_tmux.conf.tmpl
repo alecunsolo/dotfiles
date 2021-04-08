@@ -6,15 +6,10 @@ bind C-a send-prefix
 # Start numbering from 1
 set -g base-index 1
 set -g pane-base-index 1
-
 {{- if .tmux.italics }}
 # Italics
 set -g default-terminal 'tmux-256color'
 set -as terminal-overrides ',xterm*:Tc:sitm=\E[3m'
-{{- else }}
-# No italic
-# set -g default-terminal "screen-256color"
-# set -ga terminal-overrides ",xterm-256color:Tc"
 {{- end }}
 
 # Disable window autorename
@@ -35,7 +30,6 @@ bind C-x setw synchronize-panes
 
 # setw -g window-status-current-format '#{?pane_synchronized,#[bg=red],}#I:#W'
 # setw -g window-status-format         '#{?pane_synchronized,#[bg=red],}#I:#W'
-
 {{- if .tmux.tpm }}
 # Automatic tpm install
 if "test ! -d ~/.tmux/plugins/tpm" \
