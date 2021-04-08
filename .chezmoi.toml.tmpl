@@ -12,3 +12,12 @@
 
 [data.vim]
   coc = {{ $coc }}
+
+[data.mygpg]
+  maxttl = 3600
+  ttl = 600
+{{- if eq .chezmoi.os "darwin" }}
+  pinentry = "/usr/local/bin/pinentry-mac"
+{{- else }}
+  pinentry = "/usr/bin/pinentry"
+{{- end }}
