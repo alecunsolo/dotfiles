@@ -24,3 +24,11 @@ function ext-ip() {
         return 1
     fi
 }
+
+# Suffix aliases
+alias -s {yaml,json}=$EDITOR
+
+# Global aliases
+if (( ${+commands[bat]} )); then
+    alias -g B=' | bat'
+fi
