@@ -108,7 +108,10 @@ plugins=(
     # Custom plugins
     chezmoi
     contrib-kube
+    gpgw
 )
+# Gpg wrapper configuration
+zstyle ':omz:plugins:gpgw' 'self' 'alessandro.cunsolo@gmail.com'
 
 source $ZSH/oh-my-zsh.sh
 
