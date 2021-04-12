@@ -132,6 +132,10 @@ gpgw__verify() {
     gpg --verify $src.sig $src
 }
 
+gpgw__restart-agent() {
+     gpg-connect-agent reloadagent /bye
+}
+
 # Main command
 gpgw() {
     emulate -LR zsh
