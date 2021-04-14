@@ -1,0 +1,6 @@
+Include config.d/*
+
+Host *
+    AddKeysToAgent yes
+    ServerAliveInterval 30
+    ServerAliveCountMax 3
