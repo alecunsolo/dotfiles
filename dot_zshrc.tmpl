@@ -94,6 +94,10 @@ plugins=(
     history
     kubectl
     man
+{{- if eq .chezmoi.os "darwin" }}
+    osx
+{{- end }}
+    pyenv
     sudo
 {{- if eq .chezmoi.os "linux" }}
     systemd
