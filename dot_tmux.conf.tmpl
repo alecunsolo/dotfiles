@@ -14,6 +14,14 @@ set -as terminal-overrides ',xterm*:Tc:sitm=\E[3m'
 
 # Disable window autorename
 setw -g allow-rename off
+# By default, status msg disappears in the blink of an eye (750ms)
+set-option -g display-time 2000
+
+# By default, pane number disappears in 1 s
+set-option -g display-panes-time 2000
+
+# maximum number of lines held in window history - crank it up from 2k default
+set-option -g history-limit 50000
 
 # Enable mouse scroll
 setw -g mouse on
@@ -21,12 +29,27 @@ setw -g mouse on
 # Auto-renumber windows
 set -g renumber-windows on
 
+# word separators for automatic word selection
+set-window-option -g word-separators ' @"=()[]'  # default => ‘ -_@’.
+
 # Vim like copy/paste
 bind-key -Tcopy-mode-vi 'v' send -X begin-selection
 bind-key -Tcopy-mode-vi 'y' send -X copy-pipe-and-cancel "xclip -i -sel c"
 
 # toggle synchronize-panes
 bind C-x setw synchronize-panes
+
+# Pane divider
+set-window-option -g pane-border-style fg=colour11,bg=colour234
+set-window-option -g pane-active-border-style fg=colour118,bg=colour234
+
+# Cool trick: Let's dim out any pane that's not active.
+set-window-option -g window-style fg=white,bg=colour236
+set-window-option -g window-active-style fg=white,bg=colour235
+
+# let's open pane with current directory with -c option
+bind-key | split-window -h -c "#{pane_current_path}"
+bind-key _ split-window -v -c "#{pane_current_path}"
 
 # setw -g window-status-current-format '#{?pane_synchronized,#[bg=red],}#I:#W'
 # setw -g window-status-format         '#{?pane_synchronized,#[bg=red],}#I:#W'
