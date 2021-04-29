@@ -103,6 +103,8 @@ plugins=(
     systemd
 {{- if eq .chezmoi.osRelease.idLike "debian" }}
     debian
+{{- else if regexMatch "manjaro|arch" .chezmoi.osRelease.idLike }}
+    archlinux
 {{- end }}
 {{- end }}
     vi-mode
