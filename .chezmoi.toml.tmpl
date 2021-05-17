@@ -2,6 +2,9 @@
 {{- $coc := promptString "install Vim coc plugin" -}}
 {{- $tmp := promptString "install Tmux plugin manager" -}}
 
+[template]
+options=["missingkey=zero"]
+
 [data.git]
   gpgKey = 'B4C9C5EE9F63A5B7!'
   signCommit = {{ $sign }}

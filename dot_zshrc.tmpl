@@ -102,7 +102,7 @@ plugins=(
     sudo
 {{- if eq .chezmoi.os "linux" }}
     systemd
-    {{- if or ((eq .chezmoi.os.Release "debian") (eq .chezmoi.osRelease.idLike "debian")) }}
+{{- if eq "debian" (coalesce .chezmoi.osRelease.idLike .chezmoi.osRelease.id) }}
     debian
 {{- else if regexMatch "manjaro|arch" .chezmoi.osRelease.idLike }}
     archlinux
