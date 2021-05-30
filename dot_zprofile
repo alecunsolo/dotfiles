@@ -3,3 +3,7 @@ if (( $+commands[pyenv] )); then
     export PATH="$PYENV_ROOT/bin:$PATH"
     eval "$(pyenv init --path)"
 fi
+
+if [[ -d ~/bin ]]; then
+    path=(~/bin $path)
+fi
