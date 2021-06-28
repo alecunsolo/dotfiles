@@ -13,6 +13,10 @@ vnoremap kj <Esc>
 " Hide unsaved buffers
 set hidden
 
+" Backup management
+set nobackup
+set nowritebackup
+
 " init.vim management
 command! ConfReload execute "source $MYVIMRC"
 command! ConfEdit execute ":edit $MYVIMRC"
