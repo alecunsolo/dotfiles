@@ -1,5 +1,6 @@
 {{- $sign := promptString "sign git commits" -}}
 {{- $coc := promptString "install Vim coc plugin" -}}
+{{- $golang := promptString "install Vim golang plugin" -}}
 {{- $tmp := promptString "install Tmux plugin manager" -}}
 
 [template]
@@ -15,6 +16,7 @@ options=["missingkey=zero"]
 
 [data.vim]
   coc = {{ $coc }}
+  golang = {{ $golang }}
 
 [data.mygpg]
   maxttl = 3600
