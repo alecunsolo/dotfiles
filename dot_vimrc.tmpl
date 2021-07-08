@@ -139,9 +139,23 @@ silent! colorscheme gruvbox
 set background=dark
 set cursorline
 
+"   ____       _   _
+"  / ___|_   _| |_| |_ ___ _ __
+" | |  _| | | | __| __/ _ \ '__|
+" | |_| | |_| | |_| ||  __/ |
+"  \____|\__,_|\__|\__\___|_|
+
 " vim-gitgutter use this value to update signs
 set updatetime=100
 
+" Always show sign column
+set signcolumn=yes
+
+highlight  SignColumn        ctermbg=235
+highlight  GitGutter         ctermbg=235
+highlight  GruvboxGreenSign  ctermbg=235
+highlight  GruvboxRedSign    ctermbg=235
+highlight  GruvboxAquaSign   ctermbg=235
 " NERDTree
 map <leader>N :NERDTreeToggle<CR>
 
@@ -217,15 +231,6 @@ map <leader>et :tabe %%
 "  \____\___/ \____|
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
-
-" Always show the signcolumn, otherwise it would shift the text each time
-" diagnostics appear/become resolved.
-if has("nvim-0.5.0") || has("patch-8.1.1564")
-  " Recently vim can merge signcolumn and number column into one
-  set signcolumn=number
-else
-  set signcolumn=yes
-endif
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
