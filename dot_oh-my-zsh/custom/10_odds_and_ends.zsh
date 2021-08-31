@@ -46,3 +46,8 @@ function ssh-reagent () {
   done
   echo "Cannot find ssh agent - maybe you should reconnect and forward it?"
 }
+
+# Sync pihole
+function sync-local-dns {
+    ssh devops@pihole02 /home/devops/gravity-sync/gravity-sync.sh pull
+}
