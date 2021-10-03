@@ -1,22 +1,17 @@
-{{- $sign := promptString "sign git commits" -}}
-{{- $coc := promptString "install Vim coc plugin" -}}
-{{- $golang := promptString "install Vim golang plugin" -}}
-{{- $tmp := promptString "install Tmux plugin manager" -}}
-
 [template]
 options=["missingkey=zero"]
 
 [data.git]
   gpgKey = 'B4C9C5EE9F63A5B7!'
-  signCommit = {{ $sign }}
+  signCommit = false
 
 [data.tmux]
   tpm = true
   italics = true
 
 [data.vim]
-  coc = {{ $coc }}
-  golang = {{ $golang }}
+  coc = false
+  golang = false
 
 [data.mygpg]
   maxttl = 3600
