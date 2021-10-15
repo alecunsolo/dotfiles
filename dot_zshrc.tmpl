@@ -127,6 +127,11 @@ fi
 # Gpg wrapper configuration
 zstyle ':omz:plugins:gpgw' 'self' 'alessandro.cunsolo@gmail.com'
 
+{{- if eq "debian" (coalesce .chezmoi.osRelease.idLike .chezmoi.osRelease.id) }}
+apt_pref=apt
+apt_upgr=full-upgrade
+
+{{- end }}
 source $ZSH/oh-my-zsh.sh
 
 if (( $+commands[nvim] )); then
