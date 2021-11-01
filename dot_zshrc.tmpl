@@ -104,7 +104,7 @@ plugins=(
     systemd
 {{- if eq "debian" (coalesce .chezmoi.osRelease.idLike .chezmoi.osRelease.id) }}
     debian
-{{- else if regexMatch "manjaro|arch" .chezmoi.osRelease.idLike }}
+{{- else if regexMatch "manjaro|arch" (coalesche .chezmoi.osRelease.idLike .chezmoi.osRelease.id ) }}
     archlinux
 {{- end }}
 {{- end }}
