@@ -1,2 +1,6 @@
 gpg
 .keep
+{{ if ne .chezmoi.os "darwin" -}}
+Brewfile
+Brewfile.lock.json
+{{ end -}}
