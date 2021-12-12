@@ -32,9 +32,17 @@ brew "terragrunt"
 brew "terrascan"
 brew "tmux"
 brew "tree"
-brew "xz"
 brew "yq"
 brew "zsh"
+
+# Pyenv prerequisites
+brew "openssl"
+brew "readline"
+brew "sqlite3"
+brew "xz"
+brew "zlib"
+# Pyenv
+brew "pyenv"
 
 # Casks
 cask "1password"
