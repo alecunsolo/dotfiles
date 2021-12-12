@@ -61,4 +61,3 @@ cask "rectangle"
 cask "spotify"
 
 # Mac Applications
-mas "F5Access", id: 1243219105
