@@ -10,6 +10,11 @@ if (( $+commands[pyenv] )); then
     eval "$(pyenv init --path)"
 fi
 
+# Pipx
+if [[ -d ~/.local/bin ]]; then
+    path=(~/.local/bin $path)
+fi
+
 # GO
 if (($+commands[go])); then
     gobin=$(go env GOBIN)
