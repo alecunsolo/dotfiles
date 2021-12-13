@@ -7,6 +7,7 @@ tap "homebrew/services"
 brew "bat"
 brew "bzip2"
 brew "chezmoi"
+brew "coreutils"
 brew "direnv"
 brew "fd"
 brew "figlet"
@@ -61,3 +62,14 @@ cask "rectangle"
 cask "spotify"
 
 # Mac Applications
+
+# Other Brewfiles
+customFiles = [
+    "Work/Brewfile"
+]
+
+customFiles.each do |customFile|
+  if File.exists?(customFile)
+    instance_eval(File.read(customFile))
+  end
+end
