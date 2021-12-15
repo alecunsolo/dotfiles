@@ -5,8 +5,6 @@ function txa() {
     tmux new-session -A -s ${1:-main}
 }
 
-alias tmuxp='PYENV_VERSION=tmuxp tmuxp'
-
 # Create a temporary directory and go there
 function mkdt() {
     local dir
@@ -47,7 +45,13 @@ function ssh-reagent () {
   echo "Cannot find ssh agent - maybe you should reconnect and forward it?"
 }
 
-# Sync pihole
-function sync-local-dns {
-    ssh devops@pihole02 /home/devops/gravity-sync/gravity-sync.sh pull
+# Remove host(s) from known_hosts
+function ssh-unknow-hosts() {
+    if [ ${#@[@]} -eq 0 ]; then
+        echo "Must pass at least one host"
+        return 1
+    fi
+    for host in $@; do
+        ssh-keygen -R $host
+    done
 }
