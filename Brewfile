@@ -61,6 +61,7 @@ cask "rectangle"
 cask "spotify"
 
 # Mac Applications
+mas "WireGuard", id: 1451685025
 
 # Other Brewfiles
 customFiles = [
