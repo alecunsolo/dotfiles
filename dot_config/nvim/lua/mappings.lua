@@ -27,3 +27,4 @@ map('n', '<leader>o', ':only<CR>', opts)
 
 -- MISC
 map('n', '<leader><SPACE>', ':noh<CR>', opts)
+map('n', '<leader>a', 'ggVG', opts) -- Select all
