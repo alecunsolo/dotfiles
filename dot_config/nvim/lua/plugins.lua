@@ -42,6 +42,9 @@ return require('packer').startup(function(use)
     config = [[require('config.treesitter')]]
   })
 
+  -- Editor config
+  use({'https://github.com/editorconfig/editorconfig-vim'})
+
   if packer_bootstrap then
     require('packer').sync()
   end
