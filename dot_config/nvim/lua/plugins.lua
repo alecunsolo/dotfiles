@@ -28,7 +28,10 @@ return require('packer').startup(function(use)
   use({'https://github.com/alexghergh/nvim-tmux-navigation', config = [[require('config.tmux')]]})
 
   -- LSP
-  use({'https://github.com/neovim/nvim-lspconfig', config = [[require('config.lsp')]]})
+  use({'https://github.com/neovim/nvim-lspconfig',
+    requires = {'williamboman/nvim-lsp-installer'},
+    config = [[require('config.lsp')]]
+  })
 
   -- Telescope
   use({ 'https://github.com/nvim-telescope/telescope.nvim',
@@ -40,6 +43,22 @@ return require('packer').startup(function(use)
   use({'https://github.com/nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
     config = [[require('config.treesitter')]]
+  })
+
+  -- Autocompletion
+  use({'hrsh7th/nvim-cmp',
+    requires = { 'https://github.com/neovim/nvim-lspconfig',
+      'https://github.com/hrsh7th/cmp-nvim-lsp',
+      'https://github.com/hrsh7th/cmp-nvim-lua',
+      'https://github.com/hrsh7th/cmp-buffer',
+      'https://github.com/hrsh7th/cmp-path',
+      'https://github.com/hrsh7th/cmp-cmdline',
+      -- Snippets
+      'https://github.com/L3MON4D3/LuaSnip',
+      'https://github.com/rafamadriz/friendly-snippets',
+      'https://github.com/saadparwaiz1/cmp_luasnip'
+    },
+    config = [[require('config.completion')]]
   })
 
   -- Editor config
