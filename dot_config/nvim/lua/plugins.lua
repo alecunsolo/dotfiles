@@ -20,7 +20,10 @@ return require('packer').startup(function(use)
 
   -- Git
   use({'https://github.com/tpope/vim-fugitive'})
-  use({'https://github.com/airblade/vim-gitgutter'})
+  use({'https://github.com/lewis6991/gitsigns.nvim',
+    requires = {'https://github.com/nvim-lua/plenary.nvim'},
+    config = [[require('config.gitsigns')]]
+  })
 
   -- Tmux integration
   use({'https://github.com/alexghergh/nvim-tmux-navigation', config = [[require('config.tmux')]]})
