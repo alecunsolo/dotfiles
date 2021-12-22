@@ -1,5 +1,6 @@
 gpg
 .keep
+.editorconfig
 {{ if ne .chezmoi.os "darwin" -}}
 Brewfile
 {{ end -}}
