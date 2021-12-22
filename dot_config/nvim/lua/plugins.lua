@@ -12,8 +12,7 @@ return require('packer').startup(function(use)
   -- Color scheme
   use({'https://github.com/EdenEast/nightfox.nvim', config = [[require('config.nightfox')]]})
   -- Lualine
-  use({
-      'https://github.com/nvim-lualine/lualine.nvim',
+  use({'https://github.com/nvim-lualine/lualine.nvim',
       requires = {'https://github.com/kyazdani42/nvim-web-devicons'},
       config = [[require('config.lualine')]]
   })
@@ -35,6 +34,12 @@ return require('packer').startup(function(use)
   use({ 'https://github.com/nvim-telescope/telescope.nvim',
     requires = {'https://github.com/nvim-lua/plenary.nvim'},
     config = [[require('config.telescope')]]
+  })
+
+  -- Tree sitter
+  use({'https://github.com/nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate',
+    config = [[require('config.treesitter')]]
   })
 
   if packer_bootstrap then
