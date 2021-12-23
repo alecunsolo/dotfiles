@@ -28,3 +28,12 @@ map('n', '<leader>o', ':only<CR>', opts)
 -- MISC
 map('n', '<leader><SPACE>', ':noh<CR>', opts)
 map('n', '<leader>a', 'ggVG', opts) -- Select all
+
+-- Reselect lines when indenting
+map('v', '>', '>gv', opts)
+map('v', '<', '<gv', opts)
+
+-- Plugin stuff
+-- Packer
+map('n', '<leader>ps', ':PackerSync<CR>', opts)
+map('n', '<leader>pS', ':PackerStatus<CR>', opts)
