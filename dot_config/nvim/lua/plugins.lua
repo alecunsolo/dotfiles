@@ -38,6 +38,7 @@ return require('packer').startup(function(use)
     requires = {'https://github.com/nvim-lua/plenary.nvim'},
     config = [[require('config.telescope')]]
   })
+  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
   -- Tree sitter
   use({'https://github.com/nvim-treesitter/nvim-treesitter',
