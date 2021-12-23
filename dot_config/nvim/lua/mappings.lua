@@ -28,6 +28,14 @@ map('n', '<leader>o', ':only<CR>', opts)
 -- MISC
 map('n', '<leader><SPACE>', ':noh<CR>', opts)
 map('n', '<leader>a', 'ggVG', opts) -- Select all
+-- Open file in the same directory of the currently open one
+-- http://vimcasts.org/episodes/the-edit-command/
+local current_dir = [[<C-R>=fnameescape(expand('%:h')).'/'<cr>]]
+map('c', '%%', current_dir, opts)
+map('n', '<leader>ew', ':e '..current_dir, opts)
+map('n', '<leader>es', ':sp '..current_dir, opts)
+map('n', '<leader>ev', ':vsp '..current_dir, opts)
+map('n', '<leader>ej', ':tabe '..current_dir, opts)
 
 -- Reselect lines when indenting
 map('v', '>', '>gv', opts)
