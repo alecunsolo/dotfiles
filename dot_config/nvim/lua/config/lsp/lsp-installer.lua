@@ -1,6 +1,14 @@
-local lsp_installer = require('nvim-lsp-installer')
+local status_ok, lsp_installer = pcall(require, "nvim-lsp-installer")
+if not status_ok then
+  vim.notify('Failed to load "lsp_installer"')
+  return
+end
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-local cmp_nvim_lsp = require('cmp_nvim_lsp')
+local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+if not status_ok then
+  vim.notify('Failed to load "cmp_nvim_lsp"')
+  return
+end
 
 local function lsp_keymaps(bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
@@ -55,6 +63,17 @@ local on_attach = function(client, bufnr)
   lsp_keymaps(bufnr)
   lsp_highlight_document(client)
 end
+
+lsp_installer.settings({
+  ui = {
+    icons = {
+      server_installed = "✓",
+      server_pending = "➜",
+      server_uninstalled = "✗"
+    }
+  },
+  log_level = vim.log.levels.DEBUG
+})
 
 lsp_installer.on_server_ready(function(server)
   local opts = {

@@ -1,6 +1,11 @@
 require('config.map')
 
-require'nvim-tmux-navigation'.setup {
+local status_ok, tmux = pcall(require, "nvim-tmux-navigation")
+if not status_ok then
+  vim.notify('Failed to load "tmux"')
+  return
+end
+tmux.setup {
     disable_when_zoomed = false
 }
 
