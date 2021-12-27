@@ -1,5 +1,11 @@
 require('config.map')
-require('telescope').setup({
+local status_ok, telescope = pcall(require, 'telescope')
+if not status_ok then
+  vim.notify("Failed to load plugin 'telescope'")
+  return
+end
+
+telescope.setup({
   defaults = {
     mappings = {
       i = {
@@ -31,9 +37,9 @@ M.hidden_files = function()
   require('telescope.builtin').find_files(opts)
 end
 
-map('n', '<leader>ff', ':Telescope find_files<CR>', opts)
-map('n', '<leader>fg', ':Telescope git_files<CR>', opts)
-map('n', '<leader>fb', ':Telescope buffers<CR>', opts)
-map('n', '<leader>fh', ':lua require("config.telescope").hidden_files()<CR>', opts)
+map('n', '<leader>f', ':Telescope find_files<CR>', opts)
+map('n', '<leader>g', ':Telescope git_files<CR>', opts)
+map('n', '<leader>b', ':Telescope buffers<CR>', opts)
+map('n', '<leader>h', ':lua require("config.telescope").hidden_files()<CR>', opts)
 
 return M
