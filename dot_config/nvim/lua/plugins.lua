@@ -64,6 +64,9 @@ return packer.startup(function(use)
   use('https://github.com/rafamadriz/friendly-snippets')
   use('https://github.com/saadparwaiz1/cmp_luasnip')
 
+  -- Comment stuff
+  use('https://github.com/numToStr/Comment.nvim')
+
   -- Editor config
   use('https://github.com/editorconfig/editorconfig-vim')
 
