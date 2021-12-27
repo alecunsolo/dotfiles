@@ -34,10 +34,11 @@ return packer.startup(function(use)
   -- LSP
   use 'https://github.com/neovim/nvim-lspconfig'
   use 'https://github.com/williamboman/nvim-lsp-installer'
+  use 'https://github.com/jose-elias-alvarez/null-ls.nvim'
 
   -- Telescope
   use 'https://github.com/nvim-telescope/telescope.nvim'
-  use 'https://github.com/nvim-lua/plenary.nvim'
+  -- use 'https://github.com/nvim-lua/plenary.nvim' Already installed
   use {'https://github.com/nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
   -- Tree sitter
@@ -45,7 +46,7 @@ return packer.startup(function(use)
 
   -- Autocompletion
   use 'https://github.com/hrsh7th/nvim-cmp'
-  use 'https://github.com/neovim/nvim-lspconfig'
+  -- use 'https://github.com/neovim/nvim-lspconfig' Already installed
   use 'https://github.com/hrsh7th/cmp-nvim-lsp'
   use 'https://github.com/hrsh7th/cmp-nvim-lua'
   use 'https://github.com/hrsh7th/cmp-buffer'
