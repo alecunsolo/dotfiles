@@ -70,6 +70,10 @@ return packer.startup(function(use)
   -- Editor config
   use('https://github.com/editorconfig/editorconfig-vim')
 
+  -- Nvim tree
+  use('https://github.com/kyazdani42/nvim-tree.lua')
+  -- use('https://github.com/kyazdani42/nvim-web-devicons') Already installed
+
   if packer_bootstrap then
     require('packer').sync()
   end

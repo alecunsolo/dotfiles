@@ -10,6 +10,7 @@ local configurations = {
   'lsp',
   'lualine',
   'nightfox',
+  'nvim-tree',
   'telescope',
   'tmux',
   'treesitter',
