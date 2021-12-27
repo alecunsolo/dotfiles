@@ -15,9 +15,8 @@ local configurations = {
 }
 
 for _, plugin in ipairs(configurations) do
-  local status_ok, _ = pcall(require, 'config.'..plugin)
+  local status_ok, _ = pcall(require, 'config.' .. plugin)
   if not status_ok then
-    vim.notify('Failed to configure plugin '..plugin)
+    vim.notify('Failed to configure plugin ' .. plugin)
   end
 end
-
