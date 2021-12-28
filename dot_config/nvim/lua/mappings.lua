@@ -41,6 +41,16 @@ map('n', '<leader>ej', ':tabe ' .. current_dir, opts)
 map('v', '>', '>gv', opts)
 map('v', '<', '<gv', opts)
 
+-- Move text up and down
+-- https://vim.fandom.com/wiki/Moving_lines_up_or_down
+-- '> is a mark assigned by Vim to identify the selection end
+map('n', '<A-j>', ':m .+1<CR>==', opts)
+map('n', '<A-k>', ':m .-2<CR>==', opts)
+map('i', '<A-j>', '<Esc>:m .+1<CR>==gi', opts)
+map('i', '<A-k>', '<Esc>:m .-2<CR>==gi', opts)
+map('v', '<A-j>', ":m '>+1<CR>gv=gv", opts)
+map('v', '<A-k>', ":m '<-2<CR>gv=gv", opts)
+
 -- Plugin stuff
 -- Packer
 map('n', '<leader>ps', ':PackerSync<CR>', opts)
