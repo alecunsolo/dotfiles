@@ -77,6 +77,9 @@ return packer.startup(function(use)
   -- Autopairs
   use('https://github.com/windwp/nvim-autopairs')
 
+  -- Intentation guides
+  use('https://github.com/lukas-reineke/indent-blankline.nvim')
+
   if packer_bootstrap then
     require('packer').sync()
   end

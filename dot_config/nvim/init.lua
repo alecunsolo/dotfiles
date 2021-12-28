@@ -8,6 +8,7 @@ local configurations = {
   'comments',
   'completion',
   'gitsigns',
+  'indent',
   'lsp',
   'lualine',
   'nightfox',
