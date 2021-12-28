@@ -81,6 +81,10 @@ return packer.startup({
     -- Intentation guides
     use('https://github.com/lukas-reineke/indent-blankline.nvim')
 
+    -- Vim surround
+    use('https://github.com/tpope/vim-surround')
+    use('https://github.com/tpope/vim-repeat') -- Enable '.' for plugins like 'surround'
+
     if packer_bootstrap then
       require('packer').sync()
     end
