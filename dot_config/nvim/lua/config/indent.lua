@@ -10,9 +10,10 @@ indent.setup({
   show_end_of_line = true,
   space_char_blankline = ' ',
   filetype_exclude = {
+    'help',
     'NvimTree',
+    'packer',
     'TelescopePrompt',
     'TelescopeResults',
-    'packer',
   },
 })
