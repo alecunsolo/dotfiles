@@ -21,66 +21,75 @@ if not status_ok then
   return
 end
 
-return packer.startup(function(use)
-  -- Self manage
-  use('https://github.com/wbthomason/packer.nvim')
-  -- Color scheme
-  use('https://github.com/EdenEast/nightfox.nvim')
-  -- Lualine
-  use('https://github.com/nvim-lualine/lualine.nvim')
-  use('https://github.com/kyazdani42/nvim-web-devicons')
+return packer.startup({
+  function(use)
+    -- Self manage
+    use('https://github.com/wbthomason/packer.nvim')
+    -- Color scheme
+    use('https://github.com/EdenEast/nightfox.nvim')
+    -- Lualine
+    use('https://github.com/nvim-lualine/lualine.nvim')
+    use('https://github.com/kyazdani42/nvim-web-devicons')
 
-  -- Git
-  use('https://github.com/tpope/vim-fugitive')
-  use('https://github.com/lewis6991/gitsigns.nvim')
-  use('https://github.com/nvim-lua/plenary.nvim')
+    -- Git
+    use('https://github.com/tpope/vim-fugitive')
+    use('https://github.com/lewis6991/gitsigns.nvim')
+    use('https://github.com/nvim-lua/plenary.nvim')
 
-  -- Tmux integration
-  use('https://github.com/alexghergh/nvim-tmux-navigation')
+    -- Tmux integration
+    use('https://github.com/alexghergh/nvim-tmux-navigation')
 
-  -- LSP
-  use('https://github.com/neovim/nvim-lspconfig')
-  use('https://github.com/williamboman/nvim-lsp-installer')
-  use('https://github.com/jose-elias-alvarez/null-ls.nvim')
+    -- LSP
+    use('https://github.com/neovim/nvim-lspconfig')
+    use('https://github.com/williamboman/nvim-lsp-installer')
+    use('https://github.com/jose-elias-alvarez/null-ls.nvim')
 
-  -- Telescope
-  use('https://github.com/nvim-telescope/telescope.nvim')
-  -- use 'https://github.com/nvim-lua/plenary.nvim' Already installed
-  use({ 'https://github.com/nvim-telescope/telescope-fzf-native.nvim', run = 'make' })
+    -- Telescope
+    use('https://github.com/nvim-telescope/telescope.nvim')
+    -- use 'https://github.com/nvim-lua/plenary.nvim' Already installed
+    use({ 'https://github.com/nvim-telescope/telescope-fzf-native.nvim', run = 'make' })
 
-  -- Tree sitter
-  use({ 'https://github.com/nvim-treesitter/nvim-treesitter', run = ':TSUpdate' })
+    -- Tree sitter
+    use({ 'https://github.com/nvim-treesitter/nvim-treesitter', run = ':TSUpdate' })
 
-  -- Autocompletion
-  use('https://github.com/hrsh7th/nvim-cmp')
-  -- use 'https://github.com/neovim/nvim-lspconfig' Already installed
-  use('https://github.com/hrsh7th/cmp-nvim-lsp')
-  use('https://github.com/hrsh7th/cmp-nvim-lua')
-  use('https://github.com/hrsh7th/cmp-buffer')
-  use('https://github.com/hrsh7th/cmp-path')
-  use('https://github.com/hrsh7th/cmp-cmdline')
-  -- Snippets
-  use('https://github.com/L3MON4D3/LuaSnip')
-  use('https://github.com/rafamadriz/friendly-snippets')
-  use('https://github.com/saadparwaiz1/cmp_luasnip')
+    -- Autocompletion
+    use('https://github.com/hrsh7th/nvim-cmp')
+    -- use 'https://github.com/neovim/nvim-lspconfig' Already installed
+    use('https://github.com/hrsh7th/cmp-nvim-lsp')
+    use('https://github.com/hrsh7th/cmp-nvim-lua')
+    use('https://github.com/hrsh7th/cmp-buffer')
+    use('https://github.com/hrsh7th/cmp-path')
+    use('https://github.com/hrsh7th/cmp-cmdline')
+    -- Snippets
+    use('https://github.com/L3MON4D3/LuaSnip')
+    use('https://github.com/rafamadriz/friendly-snippets')
+    use('https://github.com/saadparwaiz1/cmp_luasnip')
 
-  -- Comment stuff
-  use('https://github.com/numToStr/Comment.nvim')
+    -- Comment stuff
+    use('https://github.com/numToStr/Comment.nvim')
 
-  -- Editor config
-  use('https://github.com/editorconfig/editorconfig-vim')
+    -- Editor config
+    use('https://github.com/editorconfig/editorconfig-vim')
 
-  -- Nvim tree
-  use('https://github.com/kyazdani42/nvim-tree.lua')
-  -- use('https://github.com/kyazdani42/nvim-web-devicons') Already installed
+    -- Nvim tree
+    use('https://github.com/kyazdani42/nvim-tree.lua')
+    -- use('https://github.com/kyazdani42/nvim-web-devicons') Already installed
 
-  -- Autopairs
-  use('https://github.com/windwp/nvim-autopairs')
+    -- Autopairs
+    use('https://github.com/windwp/nvim-autopairs')
 
-  -- Intentation guides
-  use('https://github.com/lukas-reineke/indent-blankline.nvim')
+    -- Intentation guides
+    use('https://github.com/lukas-reineke/indent-blankline.nvim')
 
-  if packer_bootstrap then
-    require('packer').sync()
-  end
-end)
+    if packer_bootstrap then
+      require('packer').sync()
+    end
+  end,
+  config = {
+    display = {
+      open_fn = function()
+        return require('packer.util').float({ border = 'single' })
+      end,
+    },
+  },
+})
