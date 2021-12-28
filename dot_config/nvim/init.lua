@@ -1,6 +1,6 @@
-require('options')
-require('mappings')
-require('plugins')
+require('config.options')
+require('config.mappings')
+require('config.plugins')
 
 -- This may fail on bootstrap
 local configurations = {
@@ -13,6 +13,7 @@ local configurations = {
   'lualine',
   'nightfox',
   'nvim-tree',
+  'reload',
   'telescope',
   'tmux',
   'treesitter',
