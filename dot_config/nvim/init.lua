@@ -4,6 +4,7 @@ require('plugins')
 
 -- This may fail on bootstrap
 local configurations = {
+  'autopairs',
   'comments',
   'completion',
   'gitsigns',

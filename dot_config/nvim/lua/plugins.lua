@@ -74,6 +74,9 @@ return packer.startup(function(use)
   use('https://github.com/kyazdani42/nvim-tree.lua')
   -- use('https://github.com/kyazdani42/nvim-web-devicons') Already installed
 
+  -- Autopairs
+  use('https://github.com/windwp/nvim-autopairs')
+
   if packer_bootstrap then
     require('packer').sync()
   end
