@@ -85,6 +85,9 @@ return packer.startup({
     use('https://github.com/tpope/vim-surround')
     use('https://github.com/tpope/vim-repeat') -- Enable '.' for plugins like 'surround'
 
+    -- Which-key
+    use('https://github.com/folke/which-key.nvim')
+
     if packer_bootstrap then
       require('packer').sync()
     end

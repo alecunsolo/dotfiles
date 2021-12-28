@@ -63,7 +63,6 @@ map('i', '<A-k>', '<Esc>:m .-2<CR>==gi', opts)
 map('v', '<A-j>', ":m '>+1<CR>gv=gv", opts)
 map('v', '<A-k>', ":m '<-2<CR>gv=gv", opts)
 
+map('v', '<leader>S', ":'<,'>sort u<CR>gv", opts)
+
 -- Plugin stuff
--- Packer
-map('n', '<leader>ps', ':PackerSync<CR>', opts)
-map('n', '<leader>pS', ':PackerStatus<CR>', opts)

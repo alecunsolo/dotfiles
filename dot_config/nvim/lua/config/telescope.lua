@@ -36,10 +36,10 @@ M.hidden_files = function()
   local opts = { find_command = { 'fd', '--type', 'f', '--hidden', '--exclude', '.git', '--strip-cwd-prefix' } }
   require('telescope.builtin').find_files(opts)
 end
-
+--[[
 map('n', '<leader>f', ':Telescope find_files<CR>', opts)
 map('n', '<leader>g', ':Telescope git_files<CR>', opts)
 map('n', '<leader>b', ':Telescope buffers<CR>', opts)
 map('n', '<leader>h', ':lua require("config.telescope").hidden_files()<CR>', opts)
-
+--]]
 return M

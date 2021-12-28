@@ -29,6 +29,7 @@ o.splitbelow = true
 o.splitright = true
 o.swapfile = false
 o.tabstop = 4
+o.timeoutlen = 500
 o.undofile = true
 o.updatetime = 100
 o.wrap = false

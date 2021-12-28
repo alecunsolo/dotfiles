@@ -17,6 +17,7 @@ local configurations = {
   'telescope',
   'tmux',
   'treesitter',
+  'whichkey',
 }
 
 for _, plugin in ipairs(configurations) do
