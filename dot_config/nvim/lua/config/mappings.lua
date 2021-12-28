@@ -15,6 +15,13 @@ map('i', '<DOWN>', '<NOP>', opts)
 map('i', '<LEFT>', '<NOP>', opts)
 map('i', '<RIGHT>', '<NOP>', opts)
 
+-- Disable ex mode
+map('n', 'Q', '<NOP>', opts)
+-- Disable command-line window
+map('n', 'q:', '<NOP>', opts)
+map('n', 'q/', '<NOP>', opts)
+map('n', 'q?', '<NOP>', opts)
+
 local current_dir = [[<C-R>=fnameescape(expand('%:h')).'/'<cr>]]
 -- File management
 map('n', 's', ':w<CR>', opts)
@@ -22,13 +29,6 @@ map('n', '<leader>s', ':noa w<CR>', opts)
 -- Allow gf to open non-existent files
 map('n', 'gf', ':edit ' .. current_dir .. '<cfile><CR>', opts)
 
--- Windows
-map('n', '<leader>c', ':close<CR>', opts)
-map('n', '<leader>o', ':only<CR>', opts)
-
--- MISC
-map('n', '<leader><SPACE>', ':noh<CR>', opts)
-map('n', '<leader>a', 'ggVG', opts) -- Select all
 -- Open file in the same directory of the currently open one
 -- http://vimcasts.org/episodes/the-edit-command/
 map('c', '%%', current_dir, opts)
@@ -36,6 +36,18 @@ map('n', '<leader>ew', ':e ' .. current_dir, opts)
 map('n', '<leader>es', ':sp ' .. current_dir, opts)
 map('n', '<leader>ev', ':vsp ' .. current_dir, opts)
 map('n', '<leader>ej', ':tabe ' .. current_dir, opts)
+
+-- Windows
+map('n', '<leader>c', ':close<CR>', opts)
+map('n', '<leader>o', ':only<CR>', opts)
+
+-- Buffers
+map('n', '<leader><TAB>', ':bnext<CR>', opts)
+map('n', '<leader><S-TAB>', ':bprevious<CR>', opts)
+--
+-- MISC
+map('n', '<leader><SPACE>', ':noh<CR>', opts)
+map('n', '<leader>a', 'ggVG', opts) -- Select all
 
 -- Reselect lines when indenting
 map('v', '>', '>gv', opts)
