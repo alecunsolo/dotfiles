@@ -31,6 +31,6 @@ end
 
 require('config.map')
 
-map('n', '<Leader>e', '<cmd>NvimTreeToggle<cr>', opts)
+map('n', '<Leader>e', '<cmd>NvimTreeFindFileToggle<cr>', opts)
 
 nvim_tree.setup()
