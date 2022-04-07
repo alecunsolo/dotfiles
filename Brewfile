@@ -56,6 +56,7 @@ brew "pyenv"
 
 # Casks
 cask "1password"
+cask "balenaetcher"
 cask "discord"
 cask "docker"
 cask "firefox"
@@ -66,7 +67,6 @@ cask "google-chrome"
 cask "inkscape"
 cask "iterm2"
 cask "libreoffice"
-cask "raspberry-pi-imager"
 cask "rectangle"
 cask "spotify"
 
