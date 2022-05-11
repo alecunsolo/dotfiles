@@ -95,8 +95,10 @@ cmp.setup({
     { name = 'buffer' },
     { name = 'path' },
   }),
-  documentation = {
-    border = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' },
+  window = {
+    documentation = {
+      border = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' },
+    }
   },
 })
 

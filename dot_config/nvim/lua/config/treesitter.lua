@@ -5,7 +5,7 @@ if not status_ok then
 end
 
 configs.setup({
-  ensure_installed = 'maintained',
+  ensure_installed = 'all',
   highlight = {
     enable = true,
   },
