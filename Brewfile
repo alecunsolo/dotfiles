@@ -54,6 +54,7 @@ brew "pyenv"
 
 # Casks
 cask "1password"
+cask "1password-cli"
 cask "balenaetcher"
 cask "deepnest"
 cask "discord"
