@@ -8,10 +8,12 @@ alias tgp='terragrunt plan'
 alias tga='terragrunt apply'
 alias tgi='terragrunt init'
 alias tgf='terragrunt hclfmt'
+alias tgo='terragrunt output'
 
-alias tgpf='terragrunt plan -output terragrunt.plan'
+alias tgpf='terragrunt plan -out terragrunt.plan'
+alias tgaf='terragrunt apply terragrunt.plan'
 
-tgaf() {
+tgpaf() {
     local PLANFILE=terragrunt.plan
     if ! terragrunt plan -out $PLANFILE ; then
         echo "Failed to plan"
@@ -25,3 +27,4 @@ tgaf() {
         echo "You can manually apply this plan with \"terragrunt apply $PLANFILE\""
     fi
 }
+
