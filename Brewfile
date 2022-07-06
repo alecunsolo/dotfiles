@@ -4,6 +4,7 @@ tap "homebrew/cask-fonts"
 tap "homebrew/services"
 # Other taps
 tap "goreleaser/tap"
+tap "fluxcd/tap"
 
 # Formulae
 brew "bat"
@@ -14,6 +15,7 @@ brew "curl"
 brew "direnv"
 brew "fd"
 brew "figlet"
+brew "fluxcd/tap/flux"
 brew "fzf"
 brew "git"
 brew "git-crypt"
