@@ -10,4 +10,4 @@ alias b='brew'
 alias bi='brew install'
 alias bci='brew --cask install'
 
-alias bup='brew update && brew upgrade'
+alias bup='brew bundle install --cleanup'
