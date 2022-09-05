@@ -78,6 +78,7 @@ cask "wireshark"
 
 # Mac Applications
 mas "WireGuard", id: 1451685025
+mas "Yubico Authenticator", id: 1497506650
 
 # Other Brewfiles
 customFiles = [
