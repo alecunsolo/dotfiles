@@ -129,7 +129,7 @@ fi
 # Gpg wrapper configuration
 zstyle ':omz:plugins:gpgw' 'self' 'alessandro.cunsolo@gmail.com'
 
-{{- if eq "debian" (coalesce .chezmoi.osRelease.idLike .chezmoi.osRelease.id) }}
+{{- if eq "debian" (dig "osRelease" "idLike" .chezmoi) (dig "osRelease" "id" .chezmoi) }}
 apt_pref=apt
 apt_upgr=full-upgrade
 
