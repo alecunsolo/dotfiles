@@ -129,11 +129,9 @@ fi
 # Gpg wrapper configuration
 zstyle ':omz:plugins:gpgw' 'self' 'alessandro.cunsolo@gmail.com'
 
-{{- if eq "debian" (dig "osRelease" "idLike" .chezmoi) (dig "osRelease" "id" .chezmoi) }}
+# Debian only
 apt_pref=apt
-apt_upgr=full-upgrade
-
-{{- end }}
+apt_upgr=upgrade
 
 if [[ -f ~/.zshrc.local ]]; then
     source ~/.zshrc.local
