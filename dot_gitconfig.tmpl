@@ -14,7 +14,7 @@
 [user]
     name = Alessandro Cunsolo
     email = alessandro.cunsolo@gmail.com
-    signingkey = {{ .git.gpgKey }}
+    signingkey = {{ .git.gpgkey }}
 [include]
     path = ~/.gitconfig.local
 
@@ -22,4 +22,4 @@
     ff = only
 
 [commit]
-    gpgsign = {{ .git.signCommit }}
+    gpgsign = {{ .git.signcommit }}
