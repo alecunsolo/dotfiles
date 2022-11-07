@@ -55,6 +55,7 @@ brew "xz"
 brew "zlib"
 # Pyenv
 brew "pyenv"
+brew "pyenv-virtualenv"
 
 # Casks
 cask "1password"
