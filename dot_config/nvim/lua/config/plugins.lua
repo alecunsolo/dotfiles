@@ -41,7 +41,6 @@ return packer.startup({
 
     -- LSP
     use('https://github.com/neovim/nvim-lspconfig')
-    use('https://github.com/williamboman/nvim-lsp-installer')
     use('https://github.com/jose-elias-alvarez/null-ls.nvim')
 
     -- Telescope
