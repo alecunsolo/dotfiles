@@ -40,8 +40,10 @@ return packer.startup({
     use('https://github.com/alexghergh/nvim-tmux-navigation')
 
     -- LSP
-    use('https://github.com/neovim/nvim-lspconfig')
     use('https://github.com/jose-elias-alvarez/null-ls.nvim')
+    use('https://github.com/williamboman/mason.nvim')
+    use('https://github.com/williamboman/mason-lspconfig.nvim')
+    use('https://github.com/neovim/nvim-lspconfig')
 
     -- Telescope
     use('https://github.com/nvim-telescope/telescope.nvim')
