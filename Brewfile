@@ -3,8 +3,9 @@ tap "homebrew/cask"
 tap "homebrew/cask-fonts"
 tap "homebrew/services"
 # Other taps
-tap "goreleaser/tap"
+tap "borgbackup/tap"
 tap "fluxcd/tap"
+tap "goreleaser/tap"
 
 # Formulae
 brew "bat"
@@ -46,6 +47,10 @@ brew "tmux"
 brew "tree"
 brew "yq"
 brew "zsh"
+# Borg with fuse support
+brew "borgbackup-fuse"
+brew "libb2"
+brew "xxhash"
 
 # Pyenv prerequisites
 brew "openssl"
@@ -72,11 +77,13 @@ cask "google-chrome"
 cask "inkscape"
 cask "iterm2"
 cask "libreoffice"
+cask "macfuse"
 cask "rar"
 cask "raspberry-pi-imager"
 cask "rectangle"
 cask "spotify"
 cask "vlc"
+cask "vorta"
 cask "wireshark"
 
 # Mac Applications
