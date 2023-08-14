@@ -39,6 +39,9 @@ bind-key -Tcopy-mode-vi 'y' send -X copy-pipe-and-cancel "xclip -i -sel c"
 # toggle synchronize-panes
 bind C-x setw synchronize-panes
 
+# Restore clear-screen
+bind C-l send-keys 'C-l'
+
 # Pane divider
 set-window-option -g pane-border-style fg=colour11,bg=colour234
 set-window-option -g pane-active-border-style fg=colour118,bg=colour234
