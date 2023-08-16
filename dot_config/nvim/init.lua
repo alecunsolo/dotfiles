@@ -466,6 +466,20 @@ vim.g.rainbow_delimiters = {
 -- ################
 -- # KEY BINDINGS #
 -- ################
+-- No arrows
+vim.keymap.set({'n', 'i'}, '<UP>', '<NOP>')
+vim.keymap.set({'n', 'i'}, '<DOWN>', '<NOP>')
+vim.keymap.set({'n', 'i'}, '<LEFT>', '<NOP>')
+vim.keymap.set({'n', 'i'}, '<RIGHT>', '<NOP>')
+-- Move selected lines
+vim.keymap.set('v', 'J', [[:m '>+1<CR>gv=gv]])
+vim.keymap.set('v', 'K', [[:m '<-2<CR>gv=gv]])
+-- Disable ex mode
+vim.keymap.set('n', 'Q', '<NOP>')
+-- Disable command-line window
+vim.keymap.set('n', 'q:', '<NOP>')
+vim.keymap.set('n', 'q/', '<NOP>')
+vim.keymap.set('n', 'q?', '<NOP>')
 -- Join lines without moving the cursor
 vim.keymap.set('n', 'J', 'mzJ`z')
 -- Remap for dealing with word wrap
