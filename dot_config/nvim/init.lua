@@ -545,4 +545,18 @@ vim.keymap.set('n', '<leader>ef', vim.cmd.NvimTreeFindFileToggle,
 vim.keymap.set('n', '<leader>o', 'o<C-U>')
 vim.keymap.set('n', '<leader>O', 'O<C-U>')
 
+-- ####################
+-- # CUSTOM FILETYPES #
+-- ####################
+require("os")
+vim.filetype.add({
+  filename = {
+    [os.getenv('HOME') .. '/.kube/config'] = 'yaml', -- Only for this exact path
+  },
+  pattern = {
+    ['Jenkinsfile.*'] = 'groovy',
+    ['.*/.ssh/config.d/.*'] = 'sshconfig',
+  }
+})
+
 -- vim: ts=2 sts=2 sw=2 et
