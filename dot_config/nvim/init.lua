@@ -170,6 +170,7 @@ require('lazy').setup({
       vim.g.tmux_navigator_disable_when_zoomed = 1
     end
   },
+
   -- Fuzzy Finder (files, lsp, etc)
   {
     'nvim-telescope/telescope.nvim',
@@ -256,10 +257,7 @@ require('lazy').setup({
 
   -- Coloured delimiters
   'HiPhish/rainbow-delimiters.nvim',
-  -- {
-  --   'HiPhish/rainbow-delimiters.nvim',
-  --   opts = {},
-  -- },
+
   -- Surround
   {
     'echasnovski/mini.surround',
