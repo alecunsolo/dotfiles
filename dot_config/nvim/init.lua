@@ -465,6 +465,10 @@ vim.g.rainbow_delimiters = {
   },
 }
 
+--[[ Configure comments ]]
+local comment_ft = require("Comment.ft")
+comment_ft.set('hcl', '#%s')
+
 -- ################
 -- # KEY BINDINGS #
 -- ################
@@ -537,5 +541,8 @@ end, { silent = true })
 vim.keymap.set('n', '<leader>ee', vim.cmd.NvimTreeToggle, { desc = '[O]pen file [E]xplorer' })
 vim.keymap.set('n', '<leader>ef', vim.cmd.NvimTreeFindFileToggle,
   { desc = '[O]pen file explorer and go to current [F]ile' })
+-- Deal with comments
+vim.keymap.set('n', '<leader>o', 'o<C-U>')
+vim.keymap.set('n', '<leader>O', 'O<C-U>')
 
 -- vim: ts=2 sts=2 sw=2 et
