@@ -271,6 +271,8 @@ require('lazy').setup({
   -- Twilight
   { "folke/twilight.nvim", opts = {} },
 
+  -- Fast file selector
+  { "ThePrimeagen/harpoon", opts = {} }
 }, {})
 
 -- ########################
@@ -555,7 +557,13 @@ vim.keymap.set('n', '<leader>O', 'O<C-U>')
 vim.keymap.set('n', '<leader>zm', vim.cmd.ZenMode)
 -- Change workspace
 vim.keymap.set('n', '<leader>cw', '<cmd>silent !tmux neww tmux-sessionizer<CR>', { desc = '[C]hange [W]orkspace'} )
-
+-- Harpoon mappings
+vim.keymap.set('n', '<leader>ha', require("harpoon.mark").add_file, { desc = '[H]arpoon - [A]dd mark'})
+vim.keymap.set('n', '<leader>ht', require("harpoon.ui").toggle_quick_menu, { desc = '[H]arpoon - [T]oggle UI'})
+vim.keymap.set('n', '<leader>h1', function() require("harpoon.ui").nav_file(1) end, { desc = '[H]arpoon - [1] file'} )
+vim.keymap.set('n', '<leader>h2', function() require("harpoon.ui").nav_file(2) end, { desc = '[H]arpoon - [2] file'} )
+vim.keymap.set('n', '<leader>h3', function() require("harpoon.ui").nav_file(3) end, { desc = '[H]arpoon - [3] file'} )
+vim.keymap.set('n', '<leader>h4', function() require("harpoon.ui").nav_file(4) end, { desc = '[H]arpoon - [4] file'} )
 -- ####################
 -- # CUSTOM FILETYPES #
 -- ####################
