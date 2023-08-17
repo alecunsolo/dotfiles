@@ -1,0 +1,39 @@
+#!/bin/bash
+
+# Based on the Primeagen's script:
+# https://github.com/ThePrimeagen/.dotfiles/blob/master/bin/.local/scripts/tmux-sessionizer
+
+# Set default starting point
+if [[ -f ~/.config/tmux-sessionizer ]]; then
+    source ~/.config/tmux-sessionizer
+else
+    BASE=($PWD)
+fi
+
+if [[ "$#" -eq 1 ]]; then
+    BASE=($1)
+fi
+
+# Use fd and fzf to select the target directory
+selected=$(fd -td --exact-depth 1 . ${BASE[*]} | sort -u | fzf)
+if [[ -z "${selected}" ]]; then
+    exit 0
+fi
+
+# Set the session name
+selected_name=$(basename $selected | tr . _)
+
+# Start/attach to the session
+if [[ -z "$TMUX" ]]; then
+    # Tmux is not running: create a new session
+    tmux new-session -s $selected_name -c $selected
+else
+    # Tmux is running. Create a new session if it doesnt exist yet
+    if ! tmux has-session -t=$selected_name 2> /dev/null; then
+        tmux new-session -ds $selected_name -c $selected
+    fi
+    # Attach to the requested session
+    tmux switch-client -t $selected_name
+fi
+
+# vim:ft=bash et ts=4 sts=4 sw=4

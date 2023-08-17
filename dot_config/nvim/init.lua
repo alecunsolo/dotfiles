@@ -553,6 +553,8 @@ vim.keymap.set('n', '<leader>o', 'o<C-U>')
 vim.keymap.set('n', '<leader>O', 'O<C-U>')
 -- Zen mode
 vim.keymap.set('n', '<leader>zm', vim.cmd.ZenMode)
+-- Change workspace
+vim.keymap.set('n', '<leader>cw', '<cmd>silent !tmux neww tmux-sessionizer<CR>', { desc = '[C]hange [W]orkspace'} )
 
 -- ####################
 -- # CUSTOM FILETYPES #
