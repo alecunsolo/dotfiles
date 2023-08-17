@@ -264,6 +264,13 @@ require('lazy').setup({
     version = '*',
     opts = {},
   },
+
+  -- Zen-mode
+  { "folke/zen-mode.nvim", opts = {} },
+
+  -- Twilight
+  { "folke/twilight.nvim", opts = {} },
+
 }, {})
 
 -- ########################
@@ -544,6 +551,8 @@ vim.keymap.set('n', '<leader>ef', vim.cmd.NvimTreeFindFileToggle,
 -- Deal with comments
 vim.keymap.set('n', '<leader>o', 'o<C-U>')
 vim.keymap.set('n', '<leader>O', 'O<C-U>')
+-- Zen mode
+vim.keymap.set('n', '<leader>zm', vim.cmd.ZenMode)
 
 -- ####################
 -- # CUSTOM FILETYPES #
