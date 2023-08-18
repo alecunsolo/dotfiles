@@ -228,12 +228,14 @@ require('lazy').setup({
       -- Snippet Engine & its associated nvim-cmp source
       'L3MON4D3/LuaSnip',
       'saadparwaiz1/cmp_luasnip',
-
       -- Adds LSP completion capabilities
       'hrsh7th/cmp-nvim-lsp',
-
-      -- Adds a number of user-friendly snippets
-      -- 'rafamadriz/friendly-snippets',
+      -- Adds filesystem completion capabilities
+      'hrsh7th/cmp-path',
+      -- Adds vim cmdline completion capabilities
+      'hrsh7th/cmp-cmdline',
+      -- Adds buffer completion capabilities
+      'hrsh7th/cmp-buffer',
     },
   },
 
@@ -448,8 +450,27 @@ cmp.setup({
   },
   sources = {
     { name = 'nvim_lsp' },
+    { name = 'path'},
     { name = 'luasnip' },
+    { name = 'buffer', keyword_length = 4 },
   },
+})
+
+-- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline({ '/', '?' }, {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = {
+    { name = 'buffer' }
+  }
+})
+
+-- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline(':', {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = cmp.config.sources({
+    { name = 'path' },
+    { name = 'cmdline' }
+  })
 })
 
 -- [[ Configure rainbow-delimiters ]]
