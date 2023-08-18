@@ -407,8 +407,12 @@ mason_lspconfig.setup_handlers {
 -- See `:help cmp`
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
-require('luasnip.loaders.from_vscode').lazy_load()
-luasnip.config.setup {}
+require("luasnip.loaders.from_lua").lazy_load()
+luasnip.config.setup({
+  history = false,
+  update_events = {"TextChanged", "TextChangedI"},
+  region_check_events = "CursorMoved, InsertLeave",
+})
 
 ---@diagnostic disable-next-line: missing-fields
 cmp.setup({
@@ -430,8 +434,6 @@ cmp.setup({
     ['<Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
-      elseif luasnip.expand_or_locally_jumpable() then
-        luasnip.expand_or_jump()
       else
         fallback()
       end
@@ -439,8 +441,6 @@ cmp.setup({
     ['<S-Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
-      elseif luasnip.locally_jumpable(-1) then
-        luasnip.jump(-1)
       else
         fallback()
       end
@@ -564,6 +564,17 @@ vim.keymap.set('n', '<leader>h1', function() require("harpoon.ui").nav_file(1) e
 vim.keymap.set('n', '<leader>h2', function() require("harpoon.ui").nav_file(2) end, { desc = '[H]arpoon - [2] file'} )
 vim.keymap.set('n', '<leader>h3', function() require("harpoon.ui").nav_file(3) end, { desc = '[H]arpoon - [3] file'} )
 vim.keymap.set('n', '<leader>h4', function() require("harpoon.ui").nav_file(4) end, { desc = '[H]arpoon - [4] file'} )
+-- Lua snippets
+vim.keymap.set({'i'}, '<C-K>', function() require("luasnip").expand() end, {silent = true})
+vim.keymap.set({'i', 's'}, '<C-L>', function() require("luasnip").jump( 1) end, {silent = true})
+vim.keymap.set({'i', 's'}, '<C-J>', function() require("luasnip").jump(-1) end, {silent = true})
+
+vim.keymap.set({'i', 's'}, '<C-E>', function()
+	if require("luasnip").choice_active() then
+		require("luasnip").change_choice(1)
+	end
+end, {silent = true})
+
 -- ####################
 -- # CUSTOM FILETYPES #
 -- ####################
