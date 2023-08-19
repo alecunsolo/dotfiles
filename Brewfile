@@ -63,6 +63,7 @@ brew "pyenv-virtualenv"
 # Casks
 cask "1password"
 cask "1password-cli"
+cask "amethyst"
 cask "balenaetcher"
 cask "deepnest"
 cask "firefox"
