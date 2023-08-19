@@ -65,6 +65,7 @@ cask "1password"
 cask "1password-cli"
 cask "amethyst"
 cask "balenaetcher"
+cask 'alacritty'
 cask "deepnest"
 cask "firefox"
 cask "font-fira-code-nerd-font"
