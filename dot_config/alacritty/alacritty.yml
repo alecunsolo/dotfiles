@@ -3,6 +3,7 @@ window:
   opacity: 0.95
   title: Alacritty
   dynamic_title: false
+  option_as_alt: OnlyRight
 
 scrolling:
   history: 10000
