@@ -59,6 +59,10 @@ vim.opt.completeopt = 'menuone,noselect'
 vim.opt.termguicolors = true
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 5
+-- Enables 24-bit RGB color in the TUI.
+vim.opt.termguicolors = true
+-- Always use the block cursor
+vim.opt.guicursor="a:block-Cursor"
 
 -- #######################
 -- # PLUGIN INSTALLATION #
@@ -90,10 +94,10 @@ require('lazy').setup({
     "folke/tokyonight.nvim",
     lazy = false,
     priority = 1000,
-    opts = {},
-    config = function()
-      vim.cmd.colorscheme 'tokyonight'
-    end,
+    opts = {
+      transparent = true,
+      dim_inactive = true,
+    },
   },
   -- Status line
   {
@@ -277,6 +281,11 @@ require('lazy').setup({
   { "ThePrimeagen/harpoon", opts = {} }
 }, {})
 
+-- ################
+-- # COLOR SCHEME #
+-- ################
+vim.cmd[[colorscheme tokyonight]]
+
 -- ########################
 -- # PLUGIN CONFIGURATION #
 -- ########################
@@ -457,6 +466,7 @@ cmp.setup({
 })
 
 -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
+---@diagnostic disable-next-line: missing-fields
 cmp.setup.cmdline({ '/', '?' }, {
   mapping = cmp.mapping.preset.cmdline(),
   sources = {
@@ -465,6 +475,7 @@ cmp.setup.cmdline({ '/', '?' }, {
 })
 
 -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+---@diagnostic disable-next-line: missing-fields
 cmp.setup.cmdline(':', {
   mapping = cmp.mapping.preset.cmdline(),
   sources = cmp.config.sources({
