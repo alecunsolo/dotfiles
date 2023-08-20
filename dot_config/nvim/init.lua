@@ -97,6 +97,12 @@ require('lazy').setup({
     opts = {
       transparent = true,
       dim_inactive = true,
+      -- Brighter line numbers
+      on_highlights = function (hl, c)
+        hl.LineNr = {
+          fg = "#737aa2"
+        }
+      end
     },
   },
   -- Status line
