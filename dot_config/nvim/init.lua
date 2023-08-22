@@ -260,13 +260,6 @@ require('lazy').setup({
     opts = {}
   },
 
-  -- Autopairs
-  {
-    'echasnovski/mini.pairs',
-    version = '*',
-    opts = {},
-  },
-
   -- Coloured delimiters
   'HiPhish/rainbow-delimiters.nvim',
 
