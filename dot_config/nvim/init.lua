@@ -572,7 +572,17 @@ vim.keymap.set({ 'n', 'v' }, '<leader>y', [["+y]], { desc = '[y]ank to the syste
 vim.keymap.set('n', '<leader>Y', [["+Y]], { desc = '[Y]ank to the system clipboard' })
 vim.keymap.set({ 'n', 'v' }, '<leader>d', [["_d]], { desc = '[D]elete into the void' })
 -- Git
-vim.keymap.set('n', '<leader>gg', ':Git<cr>', { desc = 'Open Fugitive window' })
+vim.keymap.set('n', '<leader>gg', function()
+  local windows = vim.api.nvim_list_wins()
+  for _, v in pairs(windows) do
+    local status, _ = pcall(vim.api.nvim_win_get_var, v, 'fugitive_status')
+    if status then
+      vim.api.nvim_win_close(v, false)
+      return
+    end
+  end
+  vim.cmd [[Git]]
+end, { desc = '[G]it to[G]gle' })
 -- Go to the beginning of the context (treesitter)
 vim.keymap.set("n", "[c", function()
   require("treesitter-context").go_to_context()
