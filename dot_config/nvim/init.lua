@@ -62,7 +62,7 @@ vim.opt.scrolloff = 5
 -- Enables 24-bit RGB color in the TUI.
 vim.opt.termguicolors = true
 -- Always use the block cursor
-vim.opt.guicursor="a:block-Cursor"
+vim.opt.guicursor = "a:block-Cursor"
 
 -- #######################
 -- # PLUGIN INSTALLATION #
@@ -98,7 +98,7 @@ require('lazy').setup({
       transparent = true,
       dim_inactive = true,
       -- Brighter line numbers
-      on_highlights = function (hl, c)
+      on_highlights = function(hl, c)
         hl.LineNr = {
           fg = "#737aa2"
         }
@@ -271,19 +271,19 @@ require('lazy').setup({
   },
 
   -- Zen-mode
-  { "folke/zen-mode.nvim", opts = {} },
+  { "folke/zen-mode.nvim",                     opts = {} },
 
   -- Twilight
-  { "folke/twilight.nvim", opts = {} },
+  { "folke/twilight.nvim",                     opts = {} },
 
   -- Fast file selector
-  { "ThePrimeagen/harpoon", opts = {} }
+  { "ThePrimeagen/harpoon",                    opts = {} }
 }, {})
 
 -- ################
 -- # COLOR SCHEME #
 -- ################
-vim.cmd[[colorscheme tokyonight]]
+vim.cmd [[colorscheme tokyonight]]
 
 -- ########################
 -- # PLUGIN CONFIGURATION #
@@ -420,7 +420,7 @@ local luasnip = require 'luasnip'
 require("luasnip.loaders.from_lua").lazy_load()
 luasnip.config.setup({
   history = false,
-  update_events = {"TextChanged", "TextChangedI"},
+  update_events = { "TextChanged", "TextChangedI" },
   region_check_events = "CursorMoved, InsertLeave",
 })
 
@@ -458,9 +458,9 @@ cmp.setup({
   },
   sources = {
     { name = 'nvim_lsp' },
-    { name = 'path'},
+    { name = 'path' },
     { name = 'luasnip' },
-    { name = 'buffer', keyword_length = 4 },
+    { name = 'buffer',  keyword_length = 4 },
   },
 })
 
@@ -513,10 +513,10 @@ comment_ft.set('hcl', '#%s')
 -- # KEY BINDINGS #
 -- ################
 -- No arrows
-vim.keymap.set({'n', 'i'}, '<UP>', '<NOP>')
-vim.keymap.set({'n', 'i'}, '<DOWN>', '<NOP>')
-vim.keymap.set({'n', 'i'}, '<LEFT>', '<NOP>')
-vim.keymap.set({'n', 'i'}, '<RIGHT>', '<NOP>')
+vim.keymap.set({ 'n', 'i' }, '<UP>', '<NOP>')
+vim.keymap.set({ 'n', 'i' }, '<DOWN>', '<NOP>')
+vim.keymap.set({ 'n', 'i' }, '<LEFT>', '<NOP>')
+vim.keymap.set({ 'n', 'i' }, '<RIGHT>', '<NOP>')
 -- Move selected lines
 vim.keymap.set('v', 'J', [[:m '>+1<CR>gv=gv]])
 vim.keymap.set('v', 'K', [[:m '<-2<CR>gv=gv]])
@@ -597,24 +597,24 @@ vim.keymap.set('n', '<leader>O', 'O<C-U>')
 -- Zen mode
 vim.keymap.set('n', '<leader>zm', vim.cmd.ZenMode)
 -- Change workspace
-vim.keymap.set('n', '<leader>cw', '<cmd>silent !tmux neww tmux-sessionizer<CR>', { desc = '[C]hange [W]orkspace'} )
+vim.keymap.set('n', '<leader>cw', '<cmd>silent !tmux neww tmux-sessionizer<CR>', { desc = '[C]hange [W]orkspace' })
 -- Harpoon mappings
-vim.keymap.set('n', '<leader>ha', require("harpoon.mark").add_file, { desc = '[H]arpoon - [A]dd mark'})
-vim.keymap.set('n', '<leader>ht', require("harpoon.ui").toggle_quick_menu, { desc = '[H]arpoon - [T]oggle UI'})
-vim.keymap.set('n', '<leader>h1', function() require("harpoon.ui").nav_file(1) end, { desc = '[H]arpoon - [1] file'} )
-vim.keymap.set('n', '<leader>h2', function() require("harpoon.ui").nav_file(2) end, { desc = '[H]arpoon - [2] file'} )
-vim.keymap.set('n', '<leader>h3', function() require("harpoon.ui").nav_file(3) end, { desc = '[H]arpoon - [3] file'} )
-vim.keymap.set('n', '<leader>h4', function() require("harpoon.ui").nav_file(4) end, { desc = '[H]arpoon - [4] file'} )
+vim.keymap.set('n', '<leader>ha', require("harpoon.mark").add_file, { desc = '[H]arpoon - [A]dd mark' })
+vim.keymap.set('n', '<leader>ht', require("harpoon.ui").toggle_quick_menu, { desc = '[H]arpoon - [T]oggle UI' })
+vim.keymap.set('n', '<leader>h1', function() require("harpoon.ui").nav_file(1) end, { desc = '[H]arpoon - [1] file' })
+vim.keymap.set('n', '<leader>h2', function() require("harpoon.ui").nav_file(2) end, { desc = '[H]arpoon - [2] file' })
+vim.keymap.set('n', '<leader>h3', function() require("harpoon.ui").nav_file(3) end, { desc = '[H]arpoon - [3] file' })
+vim.keymap.set('n', '<leader>h4', function() require("harpoon.ui").nav_file(4) end, { desc = '[H]arpoon - [4] file' })
 -- Lua snippets
-vim.keymap.set({'i'}, '<C-K>', function() require("luasnip").expand() end, {silent = true})
-vim.keymap.set({'i', 's'}, '<C-L>', function() require("luasnip").jump( 1) end, {silent = true})
-vim.keymap.set({'i', 's'}, '<C-J>', function() require("luasnip").jump(-1) end, {silent = true})
+vim.keymap.set({ 'i' }, '<C-K>', function() require("luasnip").expand() end, { silent = true })
+vim.keymap.set({ 'i', 's' }, '<C-L>', function() require("luasnip").jump(1) end, { silent = true })
+vim.keymap.set({ 'i', 's' }, '<C-J>', function() require("luasnip").jump(-1) end, { silent = true })
 
-vim.keymap.set({'i', 's'}, '<C-E>', function()
-	if require("luasnip").choice_active() then
-		require("luasnip").change_choice(1)
-	end
-end, {silent = true})
+vim.keymap.set({ 'i', 's' }, '<C-E>', function()
+  if require("luasnip").choice_active() then
+    require("luasnip").change_choice(1)
+  end
+end, { silent = true })
 
 -- ####################
 -- # CUSTOM FILETYPES #
