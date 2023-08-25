@@ -1,0 +1,13 @@
+#!/bin/bash
+
+session=$(tmux list-sessions | fzf --ansi --no-multi --reverse | awk -F ':' '{print $1}')
+[[ -z $session ]] && return 0
+if [[ -n $TMUX ]]
+then
+    action='switch-client'
+else
+    action='attach-session'
+fi
+tmux $action -t $session
+
+# vim:ft=bash et ts=4 sts=4 sw=4

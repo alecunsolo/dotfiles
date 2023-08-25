@@ -200,19 +200,3 @@ function pac-interactive-remove() {
     (( ${#packages})) && yay -Rns $packages
 }
 
-# _____
-# |_   _| __ ___  _   ___  __
-#  | || '_ ` _ \| | | \ \/ /
-#  | || | | | | | |_| |>  <
-#  |_||_| |_| |_|\__,_/_/\_\
-# Interacive attach
-function tattach() {
-    session=$(tmux list-sessions | fzf --ansi --no-multi --reverse | awk -F ':' '{print $1}')
-    [[ -z $session ]] && return 0
-    if [[ -n $TMUX ]]; then
-        action='switch-client'
-    else
-        action='attach-session'
-    fi
-    tmux $action -t $session
-}
