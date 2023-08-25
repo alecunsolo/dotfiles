@@ -59,8 +59,6 @@ vim.opt.completeopt = 'menuone,noselect'
 vim.opt.termguicolors = true
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 5
--- Enables 24-bit RGB color in the TUI.
-vim.opt.termguicolors = true
 -- Always use the block cursor
 vim.opt.guicursor = "a:block-Cursor"
 
