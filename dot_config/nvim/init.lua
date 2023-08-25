@@ -589,9 +589,9 @@ vim.keymap.set("n", "[c", function()
   require("treesitter-context").go_to_context()
 end, { silent = true })
 -- File explorer
-vim.keymap.set('n', '<leader>ee', vim.cmd.NvimTreeToggle, { desc = '[O]pen file [E]xplorer' })
+vim.keymap.set('n', '<leader>ee', vim.cmd.NvimTreeToggle, { desc = 'Open file explorer' })
 vim.keymap.set('n', '<leader>ef', vim.cmd.NvimTreeFindFileToggle,
-  { desc = '[O]pen file explorer and go to current [F]ile' })
+  { desc = 'Open file explorer and go to current file' })
 -- Deal with comments
 vim.keymap.set('n', '<leader>o', 'o<C-U>')
 vim.keymap.set('n', '<leader>O', 'O<C-U>')
@@ -610,7 +610,6 @@ vim.keymap.set('n', '<leader>h4', function() require("harpoon.ui").nav_file(4) e
 vim.keymap.set({ 'i' }, '<C-K>', function() require("luasnip").expand() end, { silent = true })
 vim.keymap.set({ 'i', 's' }, '<C-L>', function() require("luasnip").jump(1) end, { silent = true })
 vim.keymap.set({ 'i', 's' }, '<C-J>', function() require("luasnip").jump(-1) end, { silent = true })
-
 vim.keymap.set({ 'i', 's' }, '<C-E>', function()
   if require("luasnip").choice_active() then
     require("luasnip").change_choice(1)
