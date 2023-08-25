@@ -61,6 +61,9 @@ vim.opt.termguicolors = true
 vim.opt.scrolloff = 5
 -- Always use the block cursor
 vim.opt.guicursor = "a:block-Cursor"
+-- Autowrite/read struff
+vim.opt.autowrite = true
+vim.opt.autoread = true
 
 -- #######################
 -- # PLUGIN INSTALLATION #
