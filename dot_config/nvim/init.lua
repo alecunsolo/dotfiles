@@ -414,6 +414,14 @@ mason_lspconfig.setup_handlers {
   end
 }
 
+-- Autoformat on save
+vim.api.nvim_create_autocmd('BufWritePre', {
+  pattern = '*',
+  callback = function()
+    vim.lsp.buf.format()
+  end
+})
+
 -- [[ Configure nvim-cmp ]]
 -- See `:help cmp`
 local cmp = require 'cmp'
@@ -615,6 +623,16 @@ vim.keymap.set({ 'i', 's' }, '<C-E>', function()
     require("luasnip").change_choice(1)
   end
 end, { silent = true })
+-- Format file
+vim.keymap.set('n', '<leader>ff', function()
+  -- No LSP formatter for HCL files. Using terrgrunt
+  if vim.bo.filetype == 'hcl' then
+    vim.cmd [[ !terragrunt hclfmt --terragrunt-hclfmt-file '%:p' ]]
+  else
+    -- If no LSP formatter is defined this is a noop
+    vim.lsp.buf.format()
+  end
+end, { desc = '[F]ormat [F]ile' })
 
 -- ####################
 -- # CUSTOM FILETYPES #
