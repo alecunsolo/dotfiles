@@ -1,7 +1,8 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Based on the Primeagen's script:
 # https://github.com/ThePrimeagen/.dotfiles/blob/master/bin/.local/scripts/tmux-sessionizer
+set -e
 
 # Set default starting point
 if [[ -f ~/.config/tmux-sessionizer ]]; then
@@ -23,17 +24,30 @@ fi
 # Set the session name
 selected_name=$(basename $selected | tr . _)
 
-# Start/attach to the session
-if [[ -z "$TMUX" ]]; then
-    # Tmux is not running: create a new session
+# Is tmux running?
+tmux_running=$(pgrep tmux)
+if [[ -z "$tmux_running" ]]; then
+    # Tmux is not running. Create a new session
     tmux new-session -s $selected_name -c $selected
-else
-    # Tmux is running. Create a new session if it doesnt exist yet
-    if ! tmux has-session -t=$selected_name 2> /dev/null; then
-        tmux new-session -ds $selected_name -c $selected
-    fi
-    # Attach to the requested session
-    tmux switch-client -t $selected_name
+    exit 0
 fi
+
+# Ok, so now I know that tmux is running.
+# I'm already in a tmux session?
+if [[ -z "$TMUX" ]]; then
+    # No, so create a new session or attach to
+    # the already existent one and be done
+    tmux new-session -A -s $selected_name -c $selected
+    exit 0
+fi
+
+# Does the requested session already exist?
+if ! tmux has-session -t=$selected_name 2> /dev/null ; then
+    # Create a new detached session
+    tmux new-session -d -s $selected_name -c $selected
+fi
+
+# Now I know the session I want exists
+tmux switch-client -t=$selected_name
 
 # vim:ft=bash et ts=4 sts=4 sw=4
