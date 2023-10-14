@@ -2,7 +2,6 @@
 
 # Based on the Primeagen's script:
 # https://github.com/ThePrimeagen/.dotfiles/blob/master/bin/.local/scripts/tmux-sessionizer
-set -e
 
 # Set default starting point
 if [[ -f ~/.config/tmux-sessionizer ]]; then
