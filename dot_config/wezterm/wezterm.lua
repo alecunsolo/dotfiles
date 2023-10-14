@@ -14,7 +14,7 @@ config.font = wezterm.font_with_fallback({
   },
   "JetBrains Mono",
 })
-config.font_size = 10.5
+config.font_size = 12
 
 config.color_scheme = 'Tokyo Night'
 config.enable_tab_bar = false
