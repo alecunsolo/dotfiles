@@ -4,15 +4,15 @@ local config = {}
 
 -- Fonts
 config.font = wezterm.font_with_fallback({
-    {
-        family = "FiraCode Nerd Font",
-        harfbuzz_features = {
-            "zero", -- 0
-            "ss05", -- @
-            "ss03", -- &
-        }
-    },
-    "JetBrains Mono",
+  {
+    family = "FiraCode Nerd Font",
+    harfbuzz_features = {
+      "zero", -- 0
+      "ss05", -- @
+      "ss03", -- &
+    }
+  },
+  "JetBrains Mono",
 })
 config.font_size = 12
 
