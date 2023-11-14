@@ -3,7 +3,7 @@
 git_clone_or_pull() {
     local source=$1
     local dest=$2
-    if [[ -d "$dest" ]]; then
+    if [ -d "$dest" ]; then
         echo "Pulling repository ${dest}"
         git -C $dest pull
     else
