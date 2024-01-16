@@ -5,3 +5,9 @@ gpg
 {{ if ne .chezmoi.os "darwin" -}}
 Brewfile
 {{ end -}}
+{{ if ne .chezmoi.hostname "Alessandros-MacBook-Pro" -}}
+Brewfile.home
+{{ end -}}
+{{ if ne .chezmoi.hostname "Alessandros-Work-MacBook-Pro" -}}
+Brewfile.work
+{{ end -}}

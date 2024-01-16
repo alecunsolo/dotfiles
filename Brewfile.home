@@ -1,0 +1,8 @@
+# Casks
+cask "balenaetcher"
+cask "deepnest"
+cask "gimp"
+cask "gnucash"
+cask "inkscape"
+cask "pgadmin4"
+cask "raspberry-pi-imager"

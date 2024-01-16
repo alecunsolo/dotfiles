@@ -2,7 +2,6 @@
 tap "homebrew/cask-fonts"
 tap "homebrew/services"
 # Other taps
-tap "borgbackup/tap"
 tap "fluxcd/tap"
 
 # Formulae
@@ -48,9 +47,7 @@ brew "yq"
 brew "zsh"
 
 # Borg with fuse support
-brew "borgbackup-fuse"
-brew "libb2"
-brew "xxhash"
+brew "borgbackup/tap/borgbackup-fuse"
 
 # Pyenv prerequisites
 brew "openssl"
@@ -66,27 +63,22 @@ brew "pyenv-virtualenv"
 cask "1password"
 cask "1password-cli"
 cask "amethyst"
-cask "balenaetcher"
-cask "deepnest"
 cask "firefox"
 cask "font-fira-code-nerd-font"
-cask "gimp"
-cask "gnucash"
 cask "google-chrome"
-cask "inkscape"
 cask "libreoffice"
+cask "logi-options-plus"
 cask "macfuse"
 cask "obsidian"
-cask "pgadmin4"
+#cask "pgadmin4"
 cask "rar"
-cask "raspberry-pi-imager"
 cask "spotify"
 cask "tigervnc-viewer"
 cask "vlc"
 cask "vorta"
 cask "wezterm"
 cask "wireshark"
-cask "zsa-wally"
+#cask "zsa-wally"
 
 # Mac Applications
 mas "WireGuard", id: 1451685025
@@ -95,7 +87,8 @@ mas "Tailscale", id: 1475387142
 
 # Other Brewfiles
 customFiles = [
-    "Work/Brewfile"
+    "Brewfile.home",
+    "Brewfile.work"
 ]
 
 customFiles.each do |customFile|
