@@ -16,6 +16,9 @@ kmap('v', 'J', [[:m '>+1<CR>gv=gv]])
 kmap('v', 'K', [[:m '<-2<CR>gv=gv]])
 -- Disable ex mode
 kmap('n', 'Q', '<NOP>')
+-- Navigate between quickfix items
+kmap('n', '<leader>[', ':cprev<CR>', { desc = "Backward quickfix" })
+kmap('n', '<leader>]', ':cnext<CR>', { desc = "Forward quickfix" })
 -- Disable command-line window
 kmap('n', 'q:', '<NOP>')
 kmap('n', 'q/', '<NOP>')
