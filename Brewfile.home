@@ -1,3 +1,6 @@
+# Formulae
+brew "podman" # I had problems with the Apple silicon PCs
+
 # Casks
 cask "balenaetcher"
 cask "deepnest"
