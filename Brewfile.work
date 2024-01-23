@@ -1,2 +1,9 @@
+# Taps
+tap "mongodb/brew"
+
 # Formulae
 brew "glab"
+brew "mongodb/brew/mongodb-database-tools"
+
+# Casks
+cask "openvpn-connect"
