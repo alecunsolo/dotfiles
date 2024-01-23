@@ -78,6 +78,7 @@ cask "vlc"
 cask "vorta"
 cask "wezterm"
 cask "wireshark"
+cask "yubico-yubikey-manager"
 #cask "zsa-wally"
 
 # Mac Applications
