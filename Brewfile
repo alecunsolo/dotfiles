@@ -2,6 +2,7 @@
 tap "homebrew/cask-fonts"
 tap "homebrew/services"
 # Other taps
+tap "borgbackup/tap"
 tap "fluxcd/tap"
 
 # Formulae
