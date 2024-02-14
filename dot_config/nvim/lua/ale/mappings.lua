@@ -15,7 +15,7 @@ kmap({ 'n', 'i' }, '<RIGHT>', '<NOP>')
 kmap('v', 'J', [[:m '>+1<CR>gv=gv]])
 kmap('v', 'K', [[:m '<-2<CR>gv=gv]])
 -- Disable ex mode
-kmap('n', 'Q', '<NOP>')
+kmap('n', '<leader>[', '<NOP>')
 -- Navigate between quickfix items
 kmap('n', '<leader>[', ':cprev<CR>', { desc = "Backward quickfix" })
 kmap('n', '<leader>]', ':cnext<CR>', { desc = "Forward quickfix" })
@@ -49,3 +49,5 @@ kmap('n', '<leader>o', 'o<C-U>')
 kmap('n', '<leader>O', 'O<C-U>')
 -- Change workspace
 kmap('n', '<leader>cw', '<cmd>silent !tmux neww tmux-sessionizer<CR>', { desc = '[C]hange [W]orkspace' })
+-- Close all buffers but the current one
+kmap('n', '<leader>bo', [[: %bd | e# | bd# <CR>]], { desc = '[B]uffer [O]nly' })
