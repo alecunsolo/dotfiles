@@ -178,5 +178,8 @@ if [[ -x "${commands[gls]}" ]]; then
     alias ls='gls --color=auto'
 fi
 
+function gpg-newkey() {
+    gpg-connect-agent "scd serialno" "learn --force" /bye
+}
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
