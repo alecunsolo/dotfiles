@@ -17,12 +17,16 @@ O.cursorline = true
 O.ignorecase = true
 O.smartcase = true
 O.hlsearch = false
+-- Preview substitutions live, as you type
+O.inccommand = 'nosplit'
 -- Keep signcolumn on by default
 O.signcolumn = 'yes'
 -- Column mark
 O.colorcolumn = '80'
 -- Do not wrap
 O.wrap = false
+-- Don't show the mode, since it's already in the status line
+O.showmode = false
 -- Backup stuff
 O.swapfile = false
 O.backup = false

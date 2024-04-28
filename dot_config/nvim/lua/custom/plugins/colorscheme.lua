@@ -8,8 +8,8 @@ return {
     -- Brighter line numbers
     on_highlights = function(hl, c)
       hl.LineNr = {
-        fg = "#737aa2"
+        fg = "#737aa2",
       }
-    end
+    end,
   },
 }
