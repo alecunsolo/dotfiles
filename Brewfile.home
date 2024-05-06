@@ -1,5 +1,7 @@
 # Formulae
+brew "opentofu"
 brew "podman" # I had problems with the Apple silicon PCs
+brew "terragrunt"
 
 # Casks
 cask "balenaetcher"
