@@ -9,5 +9,9 @@ vim.filetype.add({
   pattern = {
     ["Jenkinsfile.*"] = "groovy",
     [".*/.ssh/config.d/.*"] = "sshconfig",
+    -- Ansible
+    [".*/playbooks/.*%.ya?ml"] = "yaml.ansible",
+    [".*/tasks/.*%.ya?ml"] = "yaml.ansible",
+    [".*/handlers/.*%.ya?ml"] = "yaml.ansible",
   },
 })
