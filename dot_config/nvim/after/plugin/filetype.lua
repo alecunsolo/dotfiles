@@ -5,6 +5,9 @@ require("os")
 vim.filetype.add({
   filename = {
     [os.getenv("HOME") .. "/.kube/config"] = "yaml", -- Only for this exact path
+    --Yaml
+    [".yamllint"] = "yaml",
+    [".ansible-lint"] = "yaml",
   },
   pattern = {
     ["Jenkinsfile.*"] = "groovy",
