@@ -46,6 +46,7 @@ brew "telnet"
 brew "tmux"
 brew "tree"
 brew "yq"
+brew "zoxide"
 brew "zsh"
 
 # Borg with fuse support
