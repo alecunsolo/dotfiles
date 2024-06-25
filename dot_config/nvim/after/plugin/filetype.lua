@@ -19,5 +19,10 @@ vim.filetype.add({
   },
   extension = {
     bu = "yaml",
+    -- Quadlet
+    container = "systemd",
+    volume = "systemd",
+    network = "systemd",
+    pod = "systemd",
   },
 })
