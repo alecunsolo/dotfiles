@@ -17,4 +17,7 @@ vim.filetype.add({
     [".*/tasks/.*%.ya?ml"] = "yaml.ansible",
     [".*/handlers/.*%.ya?ml"] = "yaml.ansible",
   },
+  extension = {
+    bu = "yaml",
+  },
 })
