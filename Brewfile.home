@@ -1,4 +1,5 @@
 # Formulae
+brew "butane"
 brew "opentofu"
 brew "podman" # I had problems with the Apple silicon PCs
 brew "terragrunt"
