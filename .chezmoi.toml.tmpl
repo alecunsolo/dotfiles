@@ -1,9 +1,19 @@
+{{- $osid := .chezmoi.os -}}
+{{- if hasKey .chezmoi.osRelease "id" -}}
+{{-   $osid = printf "%s-%s" .chezmoi.os .chezmoi.osRelease.id -}}
+{{- end -}}
+
+{{- $signcommit := promptBoolOnce . "signcommit" "Sign gpg commits" -}}
+
+[data]
+    osid = {{ $osid | quote }}
+
 [template]
 options=["missingkey=zero"]
 
 [data.git]
-  gpgkey = 'B4C9C5EE9F63A5B7!'
-  signcommit = false
+  gpgkey = '0x3644EC81422633E4'
+  signcommit = {{ $signcommit | quote }}
 
 [data.tmux]
   tpm = true
