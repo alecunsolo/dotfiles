@@ -1,5 +1,5 @@
 # If terragrunt is not installed do nothing
-if [[ ! -x "${commands[terragrunt]}" ]]; then
+if (( ! $+commands[terragrunt] )); then
     return
 fi
 
@@ -19,7 +19,7 @@ tgpaf() {
         echo "Failed to plan"
         return 1
     fi
-    if read -t 5 -s -q "RESP?Do you want to apply this? [y/N] " ; then
+    if read -t 10 -s -q "RESP?Do you want to apply this? [y/N] " ; then
         echo "Ok"
         terragrunt apply $PLANFILE
     else
@@ -27,4 +27,3 @@ tgpaf() {
         echo "You can manually apply this plan with \"terragrunt apply $PLANFILE\""
     fi
 }
-

@@ -1,6 +1,5 @@
-# If chezmoi is not installed do nothing
-if [[ ! -x "${commands[chezmoi]}" ]]; then
-    return
+if (( ! $+commands[chezmoi] )); then
+  return
 fi
 
 # Aliases

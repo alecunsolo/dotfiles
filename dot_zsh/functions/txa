@@ -1,0 +1,2 @@
+# Start or attach to a tmux session with the given name ('main' as default)
+tmux new-session -A -s ${1:-main}
