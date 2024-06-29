@@ -96,7 +96,7 @@ customFiles = [
 ]
 
 customFiles.each do |customFile|
-  if File.exists?(customFile)
+  if File.exist?(customFile)
     instance_eval(File.read(customFile))
   end
 end
