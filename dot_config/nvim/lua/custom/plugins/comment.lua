@@ -1,4 +1,8 @@
 return {
   "numToStr/Comment.nvim",
-  opts = {},
+
+  opts = {
+    -- ignores blank lines
+    ignore = "^(%s*)$",
+  },
 }
