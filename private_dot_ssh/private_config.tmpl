@@ -1,6 +1,14 @@
+{{- if .ssh.domains -}}
+CanonicalizeHostname yes
+CanonicalDomains {{ .ssh.domains | join " " }}
+{{ end -}}
+CanonicalizeMaxDots {{ .ssh.maxDot }}
+CanonicalizeFallbackLocal {{ .ssh.fallbackLocal }}
+ForwardAgent no
+AddKeysToAgent yes
+ServerAliveInterval {{ .ssh.serverAlive.interval }}
+ServerAliveCountMax {{ .ssh.serverAlive.count }}
+
 Include config.d/*
 
-Host *
-    AddKeysToAgent yes
-    ServerAliveInterval 30
-    ServerAliveCountMax 3
+# vim: set ft=ssh_config

@@ -31,6 +31,14 @@ work = {{ $brewWork }}
 gpgkey = '0x3644EC81422633E4'
 signcommit = {{ $signcommit | quote }}
 
+[data.ssh]
+domains = []
+maxDot = 2
+fallbackLocal = true
+[data.ssh.serverAlive]
+interval = 90
+count = 5
+
 [data.tmux]
 tpm = true
 italics = true
