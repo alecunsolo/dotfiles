@@ -16,34 +16,34 @@
 {{-   $brewWork = promptBoolOnce . "brewWork" "Add brew work file" -}}
 {{- end -}}
 
-[data]
-    osid = {{ $osid | quote }}
-    computerName = {{ $computerName | quote }}
-
 [template]
-  options=["missingkey=zero"]
+options=["missingkey=zero"]
+
+[data]
+osid = {{ $osid | quote }}
+computerName = {{ $computerName | quote }}
 
 [data.brew]
-  personal = {{ $brewPersonal }}
-  work = {{ $brewWork }}
+personal = {{ $brewPersonal }}
+work = {{ $brewWork }}
 
 [data.git]
-  gpgkey = '0x3644EC81422633E4'
-  signcommit = {{ $signcommit | quote }}
+gpgkey = '0x3644EC81422633E4'
+signcommit = {{ $signcommit | quote }}
 
 [data.tmux]
-  tpm = true
-  italics = true
+tpm = true
+italics = true
 
 [data.mygpg]
-  maxttl = 3600
-  ttl = 600
+maxttl = 3600
+ttl = 600
 {{- if eq .chezmoi.os "darwin" }}
 {{-   if eq .chezmoi.arch "arm64" }}
-  pinentry = "/opt/homebrew/bin/pinentry-mac"
+pinentry = "/opt/homebrew/bin/pinentry-mac"
 {{-   else }}
-  pinentry = "/usr/local/bin/pinentry-mac"
+pinentry = "/usr/local/bin/pinentry-mac"
 {{-   end }}
 {{- else }}
-  pinentry = "/usr/bin/pinentry"
+pinentry = "/usr/bin/pinentry"
 {{- end }}
