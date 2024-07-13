@@ -2,7 +2,6 @@
 brew "butane"
 brew "mc"
 brew "opentofu"
-brew "podman" # I had problems with the Apple silicon PCs
 brew "tea"
 brew "terragrunt"
 

@@ -91,7 +91,7 @@ mas "Tailscale", id: 1475387142
 
 # Other Brewfiles
 customFiles = [
-    "Brewfile.home",
+    "Brewfile.personal",
     "Brewfile.work"
 ]
 
