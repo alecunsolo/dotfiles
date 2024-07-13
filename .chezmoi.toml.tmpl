@@ -9,7 +9,7 @@
     osid = {{ $osid | quote }}
 
 [template]
-options=["missingkey=zero"]
+  options=["missingkey=zero"]
 
 [data.git]
   gpgkey = '0x3644EC81422633E4'
@@ -19,10 +19,6 @@ options=["missingkey=zero"]
   tpm = true
   italics = true
 
-[data.vim]
-  coc = false
-  golang = false
-
 [data.mygpg]
   maxttl = 3600
   ttl = 600
@@ -31,6 +27,3 @@ options=["missingkey=zero"]
 {{- else }}
   pinentry = "/usr/bin/pinentry"
 {{- end }}
-
-[data.mywsl]
-  yubipassthrough = false
