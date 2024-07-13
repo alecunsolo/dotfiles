@@ -2,12 +2,12 @@ LICENSE
 gpg
 .keep
 .editorconfig
-{{ if ne .chezmoi.os "darwin" -}}
+{{ if ne .osid "darwin" -}}
 Brewfile
 {{ end -}}
-{{ if ne .chezmoi.hostname "macbook" -}}
-Brewfile.home
+{{ if not .brew.personal  -}}
+Brewfile.personal
 {{ end -}}
-{{ if ne .chezmoi.hostname "Alessandros-Work-MacBook-Pro" -}}
+{{ if not .brew.work  -}}
 Brewfile.work
 {{ end -}}
