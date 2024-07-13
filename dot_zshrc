@@ -39,6 +39,12 @@ fi
 # Source/Load zinit
 source "${ZINIT_HOME}/zinit.zsh"
 
+# OMZ plugins configuration
+zstyle ':omz:plugins:eza' 'dirs-first' yes
+zstyle ':omz:plugins:eza' 'git-status' yes
+zstyle ':omz:plugins:eza' 'show-group' yes
+ZSH_PYENV_QUIET=true
+
  # Add in Powerlevel10k
 zinit ice depth=1; zinit light romkatv/powerlevel10k
 
@@ -63,11 +69,6 @@ zinit snippet OMZP::kubectx
 zinit snippet OMZP::pyenv
 zinit snippet OMZP::sudo
 zinit snippet OMZP::vi-mode
-
-# Plugin configuration
-zstyle ':omz:plugins:eza' 'dirs-first' yes
-zstyle ':omz:plugins:eza' 'git-status' yes
-zstyle ':omz:plugins:eza' 'show-group' yes
 
 # Custom fpath
 (( ${fpath[(Ie)$HOME/.zsh/functions]} )) || fpath=("$HOME/.zsh/functions" $fpath)
