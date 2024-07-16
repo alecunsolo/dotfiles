@@ -84,9 +84,10 @@ cask "yubico-yubikey-manager"
 #cask "zsa-wally"
 
 # Mac Applications
+mas "Tailscale", id: 1475387142
 mas "WireGuard", id: 1451685025
 mas "Yubico Authenticator", id: 1497506650
-mas "Tailscale", id: 1475387142
+mas "ZSA Keymapp", id: 6472865291
 
 # Other Brewfiles
 customFiles = [
