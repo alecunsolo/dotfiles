@@ -1,18 +1,39 @@
-# Custom binaries
-if [[ -d ~/bin ]]; then
-    path=(~/bin $path)
+# Env variables
+export LANG="en_US.UTF-8"
+typeset -gU PATH path
+
+# Brew
+if [[ -x /opt/homebrew/bin/brew ]]; then
+  BREW_LOCATION="/opt/homebrew/bin/brew"
+elif [[ -x /usr/local/bin/brew ]]; then
+  BREW_LOCATION="/usr/local/bin/brew"
+elif [[ -x /home/linuxbrew/.linuxbrew/bin/brew ]]; then
+  BREW_LOCATION="/home/linuxbrew/.linuxbrew/bin/brew"
+elif [[ -x "$HOME/.linuxbrew/bin/brew" ]]; then
+  BREW_LOCATION="$HOME/.linuxbrew/bin/brew"
+else
+  BREW_LOCATION=""
 fi
+
+if [[ -n "$BREW_LOCATION" ]]; then
+  eval "$("$BREW_LOCATION" shellenv)"
+fi
+unset BREW_LOCATION
+
+# Custom binaries
+__localbins=(~/.local/bin ~/bin)
+for __localbin in $__localbins; do
+  if [[ -d $__localbin ]]; then
+    path=(~/bin $path)
+  fi
+done
+unset __localbins
 
 # Pyenv
 if (( $+commands[pyenv] )); then
-    export PYENV_ROOT="$HOME/.pyenv"
-    export PATH="$PYENV_ROOT/bin:$PATH"
-    eval "$(pyenv init --path)"
-fi
-
-# Pipx
-if [[ -d ~/.local/bin ]]; then
-    path=(~/.local/bin $path)
+  export PYENV_ROOT="$HOME/.pyenv"
+  [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+  eval "$(pyenv init -)"
 fi
 
 # GO
@@ -25,3 +46,5 @@ if (($+commands[go])); then
         path+=$gopath/bin
     fi
 fi
+
+# vim: ft=sh
