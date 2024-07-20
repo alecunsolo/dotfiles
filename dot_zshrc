@@ -62,6 +62,7 @@ zinit snippet OMZP::command-not-found
 zinit snippet OMZP::direnv
 zinit snippet OMZP::eza
 zinit snippet OMZP::git
+zinit snippet OMZP::gitignore
 zinit snippet OMZP::gnu-utils
 zinit snippet OMZP::gpg-agent
 zinit snippet OMZP::kubectl
