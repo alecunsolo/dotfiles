@@ -7,7 +7,7 @@ end
 -- vsp shortcut
 kmap("n", "<leader>vv", [[:vsp<cr>]], { silent = true, desc = "Open new vertical split" })
 -- Write file
-kmap("n", "<leader>w", [[:w<cr>]], { desc = "[W]rite file" })
+kmap("n", "<leader>ww", [[:w<cr>]], { desc = "[W]rite file" })
 -- Close buffer
 kmap("n", "<leader>q", [[:close<cr>]], { desc = "Close buffer" })
 -- Close other buffers

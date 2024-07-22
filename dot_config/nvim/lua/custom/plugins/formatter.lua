@@ -12,6 +12,7 @@ return { -- Autoformat
   },
   config = function()
     require("conform").setup({
+      log_level = vim.log.levels.ERROR,
       notify_on_error = false,
       format_on_save = function(bufnr)
         -- Disable "format_on_save lsp_fallback" for languages that don't
@@ -28,6 +29,7 @@ return { -- Autoformat
         ["terraform-vars"] = { { "terraform_fmt", "tofu_fmt" } },
         ["terraform"] = { { "terraform_fmt", "tofu_fmt" } },
         ["hcl"] = { "terragrunt_hclfmt" },
+        ["go"] = { "gofumpt", "goimports-reviser", "golines" },
       },
     })
 
