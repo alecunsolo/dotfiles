@@ -24,7 +24,7 @@ unset BREW_LOCATION
 __localbins=(~/.local/bin ~/bin)
 for __localbin in $__localbins; do
   if [[ -d $__localbin ]]; then
-    path=(~/bin $path)
+    path=($__localbin $path)
   fi
 done
 unset __localbins
