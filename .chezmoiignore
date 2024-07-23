@@ -2,6 +2,7 @@ LICENSE
 gpg
 .keep
 .editorconfig
+karabiner/caps_mod_tap.json
 {{ if ne .osid "darwin" -}}
 Brewfile
 {{ end -}}
