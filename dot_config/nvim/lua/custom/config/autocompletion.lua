@@ -110,3 +110,11 @@ cmp.setup.cmdline(":", {
   },
   matching = { disallow_symbol_nonprefix_matching = false },
 })
+
+-- Setup up vim-dadbod
+cmp.setup.filetype({ "sql" }, {
+  sources = {
+    { name = "vim-dadbod-completion" },
+    { name = "buffer" },
+  },
+})
