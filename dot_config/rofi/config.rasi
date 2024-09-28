@@ -1,0 +1,7 @@
+configuration {
+  modes: "window,drun,run,ssh,combi";
+  font: "RobotoMono Nerd Font 12";
+  combi-modi: "window,drun,ssh";
+  show-icons: true;
+}
+@theme "Arc-Dark"
