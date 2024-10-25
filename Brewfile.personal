@@ -1,6 +1,6 @@
 # Formulae
 brew "butane"
-brew "mc"
+brew "minio-mc"
 brew "opentofu"
 brew "tea"
 brew "terragrunt"
