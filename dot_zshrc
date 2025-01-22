@@ -74,6 +74,9 @@ setopt autocd
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}' # Case-insensitive completion
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}" # Colored completion output
 
+# Comments on interactive shell
+setopt interactive_comments
+
 # Local stuff
 # Editor variable
 if (( $+commands[nvim] )); then
