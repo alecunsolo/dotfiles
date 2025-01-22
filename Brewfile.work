@@ -1,9 +1,10 @@
 # Taps
-tap "mongodb/brew"
 
 # Formulae
 brew "glab"
-brew "mongodb/brew/mongodb-database-tools"
+brew "hadolint"
 
 # Casks
-cask "openvpn-connect"
+cask "tunnelblick"
+
+# Mac applications
