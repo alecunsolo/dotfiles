@@ -1,10 +1,20 @@
 # Taps
+tap "hashicorp/tap"
 
 # Formulae
+brew "gitleaks"
 brew "glab"
 brew "hadolint"
+brew "hashicorp/tap/terraform"
+brew "kubectl"
+brew "kubectx"
+brew "shellcheck"
+brew "skopeo"
+brew "terraform-docs"
+brew "tflint"
 
 # Casks
+cask "microsoft-teams"
 cask "tunnelblick"
 
 # Mac applications
