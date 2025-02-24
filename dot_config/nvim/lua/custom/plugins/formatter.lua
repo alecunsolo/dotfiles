@@ -26,8 +26,8 @@ return { -- Autoformat
       end,
       formatters_by_ft = {
         ["lua"] = { "stylua" },
-        ["terraform-vars"] = { { "terraform_fmt", "tofu_fmt" } },
-        ["terraform"] = { { "terraform_fmt", "tofu_fmt" } },
+        ["terraform-vars"] = { "terraform_fmt", "tofu_fmt", stop_after_first = true },
+        ["terraform"] = { "terraform_fmt", "tofu_fmt", stop_after_first = true },
         ["hcl"] = { "terragrunt_hclfmt" },
         ["go"] = { "gofumpt", "goimports-reviser", "golines" },
       },
