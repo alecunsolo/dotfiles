@@ -83,7 +83,7 @@ cask "tigervnc-viewer"
 cask "vlc"
 cask "vorta"
 cask "wezterm"
-cask "wireshark"
+cask "wireshark-app"
 cask "yubico-yubikey-manager"
 #cask "zsa-wally"
 
