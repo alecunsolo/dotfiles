@@ -24,6 +24,6 @@ config.send_composed_key_when_right_alt_is_pressed = false
 
 config.audible_bell = "Disabled"
 
-config.window_background_opacity = 0.95
+config.window_background_opacity = 0.98
 
 return config
