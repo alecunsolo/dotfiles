@@ -1,19 +1,26 @@
 # Taps
 tap "hashicorp/tap"
+tap "derailed/k9s"
 
 # Formulae
+brew "awscli"
+brew "derailed/k9s/k9s"
 brew "gitleaks"
 brew "glab"
 brew "hadolint"
 brew "hashicorp/tap/terraform"
+brew "helm"
 brew "kubectl"
 brew "kubectx"
 brew "shellcheck"
 brew "skopeo"
 brew "terraform-docs"
+brew "terragrunt"
+brew "tfk8s"
 brew "tflint"
 
 # Casks
+cask "brave-browser"
 cask "microsoft-teams"
 cask "tunnelblick"
 
