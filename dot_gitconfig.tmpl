@@ -1,3 +1,8 @@
+[user]
+    name = Alessandro Cunsolo
+    email = alessandro.cunsolo@gmail.com
+    signingkey = {{ .git.gpgkey }}
+
 [core]
     autocrlf = input
     pager = less -FRX
@@ -15,19 +20,41 @@
     unstage = reset HEAD --
     ignored = ls-files --other --ignored --exclude-standard
 
-[user]
-    name = Alessandro Cunsolo
-    email = alessandro.cunsolo@gmail.com
-    signingkey = {{ .git.gpgkey }}
-
 [pull]
     ff = only
+    rebase = true
 
 [commit]
     gpgsign = {{ .git.signcommit }}
 
 [tag]
     gpgsign = {{ .git.signcommit }}
+    sort = version:refname
+
+[coulmn]
+    ui = auto
+
+[branch]
+    sort = -committerdate
+
+[fetch]
+    prune = true
+
+[rebase]
+    updateRefs = true
+
+[rerere]
+    enabled = true
+    autoupdate = true
+
+[merge]
+    conflictstyle = zdiff3
+
+[diff]
+    algorithm = histogram
+    colorMoved = plain
+    mnemonicPrefix = true
+    renames = true
 
 [diff "ansible-vault"]
    textconv = ansible-vault view
@@ -37,3 +64,5 @@
 
 [include]
     path = ~/.gitconfig.local
+
+# vim: ft=gitconfig
