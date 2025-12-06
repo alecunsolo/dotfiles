@@ -1,7 +1,3 @@
--- A lot of this stuff is copy/pasted from:
---  - https://github.com/nvim-lua/kickstart.nvim
---  - https://github.com/ThePrimeagen/init.lua
-
 -- ###################
 -- # GLOBAL SETTINGS #
 -- ###################
@@ -10,10 +6,8 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-require "custom.init.options"
-require "custom.init.keymappings"
-require "custom.init.random"
-require "custom.init.lazy"
--- Plugin configurations
-require "custom.config.autocompletion"
-require "custom.config.lsp"
+require("config.options")
+require("config.mappings")
+require("config.lazy")
+require("config.autocommands")
+require("config.filetypes")
