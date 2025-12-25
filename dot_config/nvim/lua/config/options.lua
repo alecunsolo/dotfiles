@@ -69,3 +69,6 @@ vim.opt.foldlevel = 99
 vim.opt.winborder = "rounded"
 -- Matchpairs
 vim.opt.matchpairs:append("<:>")
+-- NOTE: Might be overwritten by filetypes
+-- Do not add comments when using `o` or `O`
+vim.opt.formatoptions:remove("o")

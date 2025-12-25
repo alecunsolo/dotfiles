@@ -54,3 +54,13 @@ vim.keymap.set({ "n", "x" }, "<leader>d", [["_d]], { desc = "[D]elete into the v
 -- vim.keymap.set("n", "<leader>cw", "<cmd>silent !tmux neww txs<CR>", { desc = "[C]hange [W]orkspace" })
 -- Toggle folding
 vim.keymap.set("n", "+", "za", { desc = "Toggle folded region" })
+
+-- Toggle line wrapping for the current window only
+local toggle_wrap = function()
+  if vim.wo.wrap then
+    vim.wo.wrap = false
+  else
+    vim.wo.wrap = true
+  end
+end
+vim.keymap.set("n", "<Leader>w", toggle_wrap, { desc = "Toggle line wrap", noremap = true, silent = true })
