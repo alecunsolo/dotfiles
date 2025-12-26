@@ -22,18 +22,11 @@ txsw() {
 # https://github.com/ThePrimeagen/.dotfiles/blob/master/bin/.local/scripts/tmux-sessionizer
 txs() {
   # Set default starting point
-  if [[ -f ~/.config/tmux-sessionizer ]]; then
-    source ~/.config/tmux-sessionizer
-  else
-    BASE=($PWD)
-  fi
-
-  if [[ "$#" -eq 1 ]]; then
-    BASE=($1)
-  fi
+  BASE="${1:-$HOME/code}"
 
   # Use fd and fzf to select the target directory
-  selected=$(fd -td --exact-depth 1 . ${BASE[*]} | sort -u | fzf --tmux --no-multi)
+  selected=$(fd -uu -td '\.git$' --base-directory "$BASE" | sed -E 's:/\.git/$::' | sort -u | fzf --tmux --no-multi)
+
   if [[ -z "${selected}" ]]; then
     return 0
   fi
