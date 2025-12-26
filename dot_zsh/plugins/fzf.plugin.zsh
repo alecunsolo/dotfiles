@@ -6,7 +6,7 @@ fi
 eval "$(fzf --zsh)"
 
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --strip-cwd-prefix --follow --exclude .snapshots --exclude .git'
-export FZF_DEFAULT_OPTS='--ansi --reverse --bind zero:abort,ctrl-d:preview-half-page-down,ctrl-u:preview-half-page-up'
+export FZF_DEFAULT_OPTS='--ansi --reverse --bind ctrl-d:preview-half-page-down,ctrl-u:preview-half-page-up'
 
 _fzf_compgen_path() {
     fd --hidden --exclude .git . "$1"
