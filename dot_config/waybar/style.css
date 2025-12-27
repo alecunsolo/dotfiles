@@ -102,7 +102,7 @@ tooltip {
 #battery.urgent {
     background-color: @alert;
     border: 2px solid @border;
-    color: @alert;
+    color: white;
 }
 
 #idle_inhibitor {
