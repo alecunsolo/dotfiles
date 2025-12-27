@@ -67,4 +67,4 @@ local git_show_log = function()
 end
 
 vim.api.nvim_create_user_command("GitGraph", git_show_log, {})
-vim.keymap.set("n", "<leader>gp", git_show_log, { desc = "[G]it log - gra[P]h", silent = true })
+vim.keymap.set("n", "<leader>gP", git_show_log, { desc = "[G]it log - gra[P]h", silent = true })
