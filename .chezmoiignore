@@ -10,7 +10,6 @@ dot_config/waybar
 {{ end -}}
 {{ if ne .osid "darwin" -}}
 dot_zsh/plugins/osx.plugin.zsh
-Brewfile
 {{ end -}}
 {{ if not .brew.personal  -}}
 Brewfile.personal

@@ -1,0 +1,14 @@
+# Formulae
+brew "eza"
+brew "figlet"
+brew "kubectx"
+brew "kubernetes-cli"
+brew "step"
+brew "terragrunt"
+brew "uv"
+brew "yazi"
+
+# Casks
+cask "font-fira-code-nerd-font"
+
+# vim: ft=ruby
