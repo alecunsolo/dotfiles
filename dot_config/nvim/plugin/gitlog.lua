@@ -9,8 +9,8 @@ local git_lol = function()
   local editor_height = vim.o.lines
 
   -- Set the dimensions of the floating window
-  local width = 80
-  local height = 20
+  local width = math.floor(editor_width * 2 / 3)
+  local height = math.floor(editor_height * 2 / 3)
 
   -- Calculate the row and column to center the window
   local row = math.floor((editor_height - height) / 2)
