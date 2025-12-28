@@ -4,9 +4,12 @@ gpg
 .editorconfig
 karabiner
 {{ if ne .chezmoi.os "linux" -}}
-dot_config/sway
-dot_config/swaylock
-dot_config/waybar
+**/sway
+**/sway/*
+**/swaylock
+**/swaylock/*
+**/waybar
+**/waybar/*
 {{ end -}}
 {{ if ne .osid "darwin" -}}
 dot_zsh/plugins/osx.plugin.zsh
