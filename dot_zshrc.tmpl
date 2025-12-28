@@ -43,6 +43,9 @@ zinit snippet OMZP::kubectl
 zinit snippet OMZP::kubectx
 zinit snippet OMZP::pyenv
 zinit snippet OMZP::sudo
+{{ if eq .chezmoi.os "linux" -}}
+zinit snippet OMZP::systemd
+{{ end -}}
 zinit snippet OMZP::vi-mode
 
 # Custom fpath
