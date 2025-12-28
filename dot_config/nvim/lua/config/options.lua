@@ -72,3 +72,5 @@ vim.opt.matchpairs:append("<:>")
 -- NOTE: Might be overwritten by filetypes
 -- Do not add comments when using `o` or `O`
 vim.opt.formatoptions:remove("o")
+-- In string like this struff-01 the number is not treated as negative
+vim.opt.nrformats:append("blank")

@@ -15,6 +15,7 @@ return {
       p(os.date, "%d-%m-%Y"),
       p(os.date, "%Y-%m-%d"),
       p(os.date, "%Y/%m/%d"),
+      p(os.date, "%Y%m%d"),
     }),
     i(0),
   }),

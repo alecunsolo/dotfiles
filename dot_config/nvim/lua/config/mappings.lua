@@ -18,17 +18,19 @@ vim.keymap.set({ "n", "i" }, "<DOWN>", "<NOP>")
 vim.keymap.set({ "n", "i" }, "<LEFT>", "<NOP>")
 vim.keymap.set({ "n", "i" }, "<RIGHT>", "<NOP>")
 -- Move selected lines
+-- move the mark at the start of the selection ('<) down (+1), select again the
+-- area (gv), format the selection (=), and reselect the area (gv again)
 vim.keymap.set("x", "J", [[:m '>+1<CR>gv=gv]])
+-- move the mark at the end of the selection ('>) up (-2), select again the area
+-- (gv), format the selection (=), and reselect the area (gv again)
 vim.keymap.set("x", "K", [[:m '<-2<CR>gv=gv]])
--- Disable ex mode
-vim.keymap.set("n", "Q", "<NOP>")
--- Navigate between quickfix items
-vim.keymap.set("n", "<leader>[", ":cprev<CR>", { desc = "Backward quickfix" })
-vim.keymap.set("n", "<leader>]", ":cnext<CR>", { desc = "Forward quickfix" })
--- Disable command-line window
-vim.keymap.set("n", "q:", "<NOP>")
-vim.keymap.set("n", "q/", "<NOP>")
-vim.keymap.set("n", "q?", "<NOP>")
+-- `gf` even if the file does not exists
+vim.keymap.set(
+  "n",
+  "gf",
+  [[:e <cfile><CR>]],
+  { silent = true, noremap = true, desc = "[G]o to [F]ile (create if not exists)" }
+)
 -- Join lines without moving the cursor
 vim.keymap.set("n", "J", "mzJ`z")
 -- Remap for dealing with word wrap
