@@ -42,6 +42,7 @@ brew "proxychains-ng"
 brew "qrencode"
 brew "ripgrep"
 brew "sops"
+brew "starship"
 brew "step"
 brew "stylua"
 brew "syncthing"
@@ -107,3 +108,5 @@ customFiles.each do |customFile|
     instance_eval(File.read(customFile))
   end
 end
+
+# vim: ft=ruby
