@@ -1,5 +1,4 @@
 # Taps
-tap "hashicorp/tap"
 tap "derailed/k9s"
 
 # Formulae

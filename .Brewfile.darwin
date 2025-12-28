@@ -1,4 +1,5 @@
 # Taps
+tap "hashicorp/tap"
 tap "homebrew/services"
 # Other taps
 tap "borgbackup/tap"
