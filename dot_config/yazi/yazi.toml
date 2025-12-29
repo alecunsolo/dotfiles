@@ -1,0 +1,27 @@
+"$schema" = "https://yazi-rs.github.io/schemas/yazi.json"
+
+[mgr]
+linemode       = "size"
+ratio          = [2, 4,  3]
+show_hidden    = true
+show_symlink   = false
+sort_by        = "natural"  # 1.md < 2.md < 10.md
+sort_dir_first = true
+sort_sensitive = true
+sort_translit  = true
+title_format   = "Yazi: {cwd}"
+
+[preview]
+wrap        = "yes"
+tabsize     = 2
+image_delay = 100
+
+[opener]
+view = [
+    { run = "imv %s", desc = "View", for = "linux", orphan = true },
+]
+
+[open]
+prepend_rules = [
+    { mime = "image/*", use = ["view"] },
+]

@@ -1,0 +1,24 @@
+"$schema" = "https://yazi-rs.github.io/schemas/keymap.json"
+
+[mgr]
+prepend_keymap = [
+    # Tips
+    { on = "!",     run = 'shell "$SHELL" --block', desc = "Open $SHELL here", for = "unix" },
+    { on = "y",     run = [ 'shell -- for path in %s; do echo "file://$path"; done | wl-copy -t text/uri-list', "yank" ], for = "linux", desc = "Copy selected files to the system clipboard while yanking" },
+    { on = "<C-x>", run = "toggle_all --state=off", desc = "Deselect all files" },
+
+    # GoTo
+    { on = [ "g", "C" ], run = "cd ~/code",                  desc = "Go ~/code" },
+    { on = [ "g", "p" ], run = "cd ~/Pictures/",             desc = "Go ~/Pictures/" },
+    { on = [ "g", "s" ], run = "cd ~/Pictures/Screenshots/", desc = "Go ~/Pictures/Screenshots/" },
+
+    # Plugins
+    { on = "<Enter>",    run = "plugin smart-enter",             desc = "Enter child directory, or open the file" },
+    { on = "T",          run = "plugin toggle-pane min-preview", desc = "Show or hide the preview pane" },
+    { on = [ "c", "m" ], run = "plugin chmod",                   desc = "Chmod selected files" },
+]
+
+[cmp]
+prepend_keymap = [
+    { on = "<C-y>", run = "close --sumbit", desc = "Submit the completion" }
+]
