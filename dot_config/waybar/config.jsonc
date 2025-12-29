@@ -50,8 +50,10 @@
             "(.*) — Work — Waterfox Private Browsing": "  󰗹 $1",
             "(.*) — Personal — Waterfox": "  $1",
             "(.*) — Personal — Waterfox Private Browsing": "  󰗹 $1",
+            "(.*) - yazi": "󰇥 $1",
             "(.*) - vim": " $1",
-            "(.*) - zsh": " [$1]"
+            "(.*) - nvim": " $1",
+            "(.*) - zsh": "  $1"
         },
     },
 
