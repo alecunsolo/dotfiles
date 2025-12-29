@@ -35,7 +35,7 @@ vim.opt.undofile = true
 vim.opt.mouse = "a"
 -- Show white spaces and stuff
 vim.opt.list = true
--- vim.opt.listchars:append("eol:↴")
+vim.opt.listchars:append("eol:¬")
 vim.opt.listchars:append("extends:❯")
 vim.opt.listchars:append("precedes:❮")
 -- vim.opt.listchars:append("tab:▸ ")
