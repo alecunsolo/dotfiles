@@ -124,4 +124,11 @@ if [[ -f ~/.zshrc.local ]] ; then
     source ~/.zshrc.local
 fi
 
+# Set title
+autoload -Uz add-zsh-hook
+_precmd_title() {
+  print -Pn "\e]0;%~ - zsh\a"
+}
+add-zsh-hook precmd _precmd_title
+
 # vim: ft=zsh et ts=4 sts=4 sw=4
