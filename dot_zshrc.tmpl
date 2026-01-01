@@ -73,16 +73,6 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}" # Colored completion out
 # Comments on interactive shell
 setopt interactive_comments
 
-# Local stuff
-# Editor variable
-if (( $+commands[nvim] )); then
-    export EDITOR=nvim
-elif (( $+commands[vim] )); then
-    export EDITOR=vim
-else
-    export EDITOR=vi
-fi
-
 # Functions used in the scripts
 __log() {
     print "$@" >&2
@@ -122,6 +112,16 @@ zinit cdreplay -q
 # Local configuration
 if [[ -f ~/.zshrc.local ]] ; then
     source ~/.zshrc.local
+fi
+
+# Local stuff
+# Editor variable
+if (( $+commands[nvim] )); then
+    export EDITOR="$commands[nvim]"
+elif (( $+commands[vim] )); then
+    export EDITOR="$commands[vim]"
+else
+    export EDITOR=vi
 fi
 
 # Set title
