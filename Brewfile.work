@@ -24,3 +24,5 @@ cask "microsoft-teams"
 cask "tunnelblick"
 
 # Mac applications
+
+# vim: ft=ruby

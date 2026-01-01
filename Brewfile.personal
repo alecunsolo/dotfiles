@@ -12,3 +12,5 @@ cask "gimp"
 cask "gnucash"
 cask "inkscape"
 cask "raspberry-pi-imager"
+
+# vim: ft=ruby
